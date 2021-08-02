@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <!-- Adaptivity -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" name="viewport">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta content="#ffa929" name="theme-color">
+
+    <!-- Windows Phone -->
+    <meta content="#ffa929" name="msapplication-navbutton-color">
+
+    <!-- iOS Safari -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="yes" name="apple-touch-fullscreen">
+
+    <!-- CONFIG -->
+    <meta content="telephone=no" name="format-detection">
+    <title>Coordonnées du client - Orée</title>
+
+    <!-- CSS -->
+    <link href="https://oree-prod.powerappsportals.com/main.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=latin-ext"
+        rel="stylesheet">
+
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+    <link href="https://oree-prod.powerappsportals.com/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="https://oree-prod.powerappsportals.com/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
+    <link href="https://oree-prod.powerappsportals.com/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="https://oree-prod.powerappsportals.com/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+    <link href="https://oree-prod.powerappsportals.com/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="https://oree-prod.powerappsportals.com/manifest.json" rel="manifest">
+    <meta content="#ffffff" name="msapplication-TileColor">
+    <meta content="ms-icon-144x144.png" name="msapplication-TileImage">
+    <meta content="#ffffff" name="theme-color">
+
+    <link rel="stylesheet" type="text/css" href="https://oree-prod.powerappsportals.com/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="https://oree-prod.powerappsportals.com/ns-default.css" />
+    <link rel="stylesheet" type="text/css" href="https://oree-prod.powerappsportals.com/ns-style-other.css" />
+    <script src="https://oree-prod.powerappsportals.com/modernizr.custom.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/snap.svg-min.js"></script>
+</head>
+
+<body>
+    <div class="notification-shape shape-box" id="notification-shape" data-path-to="m 0,0 500,0 0,500 -500,0 z">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 500 500"
+            preserveAspectRatio="none">
+            <path d="m 0,0 500,0 0,500 0,-500 z" />
+        </svg>
+    </div>
+
+
+
+    
+
+    <div class="loading-block" id="loading_block"></div>
+    <div class="orientation-block">
+        <div class="orientation-text">Merci de tourner votre téléphone</div>
+    </div>
+
+
+    <div class="header-menu" id="header_menu">
+        <div class="header-menu__inner-content">
+            <button class="header-close-toggle header-menu__close-button" data-toggle="close-menu" title="Close"
+                type="button"></button>
+
+            <div class="header-menu__user-info">
+                <div class="left-part">
+                    <div class="name">Alioune Sall</div>
+                    <a class="header-menu__sign-out" href="https://oree-prod.powerappsportals.com/Account/Login/LogOff?returnUrl=%2FSignIn%2F"
+                        id="logout_link">Déconnexion</a>
+                </div>
+
+                <div class="header-menu__avatar-img" id="header-menu_avatar_img_block"><img alt=""
+                        src="https://oree-prod.powerappsportals.com/avatar-placeholder.svg"></div>
+            </div>
+
+            <div class="header-menu__nav">
+                <ul>
+                    <li class="my-account">
+                        <a href="https://oree-prod.powerappsportals.com/mon-compte">Mon compte</a>
+                    </li>
+                    <li>
+                        <a href="https://oree-prod.powerappsportals.com/dashboard">Mon tableau de bord</a>
+                    </li>
+                    <li>
+                        <a href="https://oree-prod.powerappsportals.com/mes-rendez-vous">Mes rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="https://oree-prod.powerappsportals.com/my-projects">Mes études</a>
+                    </li>
+                    <li>
+                        <a href="https://oree-prod.powerappsportals.com/books-de-presentation">Mes book de présentation</a>
+                    </li>
+                    <li>
+                        <a href="https://oree-prod.powerappsportals.com/coordonnees-du-beneficiaire">Démarrer une étude</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="header-menu__logo"><img alt="" src="https://oree-prod.powerappsportals.com/oree_logo_menu.png"></div>
+        </div>
+    </div>
+
+    <div class="header-menu__overlay" data-toggle="close-menu" id="header_menu_overlay"></div>
+
+
+
+    <div class="login-block">
+        <button class="header-menu-toggle account-block__menu-button" data-toggle="open-menu" type="button">
+            <span></span>
+        </button>
+
+        <form action="" class="login-block__main-form login-block__new-object-form form-validate" id="prospectForm">
+            <div class="login-block__logo new-object-logo"><img alt="" src="https://oree-prod.powerappsportals.com/illustration-maison.png"></div>
+
+            <h4 class="text-center font-weight-normal mb-3">Coordonnées du client</h4>
+
+            <div class="form-row">
+                <div class="col-sm-12 col-md-4 mb-3">
+                    <div class="select-input-wrapper">
+                        <select class="form-control" id="Civility" name="Civility" required>
+                            <option disabled hidden selected value=""></option>
+                            
+                            <option value="629950001">Madame</option>
+                            <option value="629950000">Monsieur</option>
+                            
+                        </select>
+                        <label>Civilité</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-9"></div>
+
+                <div class="col-sm-12 col-md-6 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="text" data-rule-lettersonly="false" name="LastName" id="LastName"
+                            class="form-control" required value="">
+                        <label>Nom</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="text" data-rule-lettersonly="false" name="FirstName" id="FirstName"
+                            class="form-control" value="" required>
+                        <label>Prénom</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="tel" name="Telephone" id="Telephone" class="form-control tel-mask no-paste"
+                            value="" required>
+                        <label>Téléphone</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="tel" name="MobilePhone" id="MobilePhone" class="form-control tel-mask no-paste"
+                            value="" required>
+                        <label>Mobile</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="email" name="EMailAddress" id="EMailAddress" class="form-control no-paste" required
+                            value="">
+                        <label>Email</label>
+                    </div>
+                </div>
+
+
+                <input class="field" id="street_number" type="hidden" />
+                <input class="field" id="route" type="hidden" />
+
+                <div class="col-sm-12 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="text" name="Street" id="Street" class="form-control" required
+                            value="" placeholder="" />
+                        <label>Adresse</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-5 mb-3">
+                    <div class="text-input-wrapper">
+                        <input inputmode="decimal" pattern="[0-9]*" data-rule-maxlength="5" type="text"
+                            name="PostalCode" id="PostalCode" class="form-control num-input code-postal"
+                            data-msg-maxlength="Merci de saisir un code postal à 5 chiffres" required
+                            value="">
+                        <label>Code postal</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-7 mb-3">
+                    <div class="text-input-wrapper">
+                        <input type="text" data-rule-lettersonly="false" name="City" id="City" class="form-control"
+                            required value="">
+                        <label>Ville</label>
+                    </div>
+                </div>
+                <input id="lat" name="lat" type="hidden">
+                <input id="lng" name="lng" type="hidden">
+            </div>
+
+            <div class="row justify-content-center no-gutters mt-4">
+                <button class="btn" id="object_coord_submit" title="Étude du logement" type="button">Étude du
+                    logement</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div aria-hidden="true" class="modal fade" id="error-modal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="h3 modal-title">Une erreur est survenue</div>
+                    <button aria-label="Fermer" class="btn close" data-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted error-msg"></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn centered" data-dismiss="modal" type="button">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" class="modal fade" data-backdrop="static" data-keyboard="false" id="info-modal"
+        role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="h3 modal-title">Information</div>
+                    <button aria-label="Fermer" class="btn close" data-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted info-msg">
+                        L'addresse que vous avez saisi est imprécise<br>
+                    </p>
+                </div>
+                <div class="modal-illustration-block">
+                    <div class="animated-sun" id="sun-block"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" class="modal fade" id="incident_modal" role="dialog" tabindex="-1"
+        data-api="https://tucoenergieapi-prod.azurewebsites.net"><div class="modal-dialog modal-dialog-centered vos-consommations__popup ecs-popup" role="document">
+    <form class="modal-content form-validate" id="incident_form">
+        <div class="vos-consommations__popup-icon"><img alt="" src="https://oree-prod.powerappsportals.com/electricite-white-icon.svg"></div>
+        <div class="modal-header">
+            <div class="h1 modal-title">Aidez-nous à améliorer Orée</div>
+            <button aria-label="Fermer" class="btn close" data-dismiss="modal" type="button"></button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12 col-md-7 mb-3">
+                <h6 class="title">Type de la demande</h6>
+                <div class="select-input-wrapper">
+                    <select class="form-control validate[required] control-duplicate" name="incidentType" required data-user="c70a745c-69d3-eb11-bacc-000d3aae8ffc">
+                        <option value="" data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+                        <option value="629950002">Rapporter un bug</option>
+                        <option value="629950003">Proposer une amélioration</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-9  mb-3">
+                <h6 class="title">Titre de l'incident</h6>
+                <div class="text-input-wrapper">
+                    <input type="text" class="form-control" name="incidentTitle" required/>
+                </div>
+            </div>
+
+            <div class="bug-details">
+                <div class="col-12  mb-3">
+                    <h6 class="title">Étapes pour reproduire le bug</h6>
+                    <div class="text-input-wrapper">
+                        <textarea class="form-control" name="bugDetails" required maxlength="2000"></textarea>
+                    </div>
+                </div>
+                <div class="col-12  mb-3">
+                    <h6 class="title">Résultat attendu et résultat obtenu</h6>
+                    <div class="text-input-wrapper">
+                        <textarea class="form-control" name="exceptedResults" required maxlength="2000"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12  mb-3" id="description">
+                <h6 class="title">Notes / commentaires</h6>
+                <div class="text-input-wrapper">
+                    <textarea class="form-control" name="description" required maxlength="2000"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <h2>Captures d'écrans</h2>
+
+                <div class="upl-docs-module">
+
+                    <div class="upl-docs-module__item">
+                        <button class="btn btn-purple btn-bordered upl-docs-module__item-toggle" type="button">Captures d'écrans</button>
+
+                        <div class="collapse upl-docs-module__item-content">
+                            <div class="inner-content">
+                                <div class="mb-4">
+
+                                    <input accept="image/*" capture="camera" class="d-none no-validate" hidden name="captures.photoFiles[0].complexRawBase64" type="hidden"/>
+                                    <input accept="image/*" capture="camera" class="d-none no-validate" hidden name="captures.photoFiles[1].complexRawBase64" type="hidden"/>
+                                    <input accept="image/*" capture="camera" class="d-none no-validate" hidden name="captures.photoFiles[2].complexRawBase64" type="hidden"/>
+
+                                    <div class="form-row">
+                                        <div class="col-6 col-md-4 mb-1 order-1 d-none">
+                                            <div class="upl-docs-module__loaded-item" id="capture_1">
+                                                <button class="tech-control-button delete-button" data-toggle="photo-upload-delete" title="Delete" type="button">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                                <div class="img-wrapper"><img alt="" src="https://oree-prod.powerappsportals.com/doc-demo.jpg"></div>
+                                                <div class="caption-block">
+                                                    <span class="file-name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 mb-1 order-1 d-none">
+                                            <div class="upl-docs-module__loaded-item" id="capture_2">
+                                                <button class="tech-control-button delete-button" data-toggle="photo-upload-delete" title="Delete" type="button">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                                <div class="img-wrapper"><img alt="" src="/doc-demo.jpg"></div>
+                                                <div class="caption-block">
+                                                    <span class="file-name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 mb-1 order-1 d-none">
+                                            <div class="upl-docs-module__loaded-item" id="capture_3">
+                                                <button class="tech-control-button delete-button" data-toggle="photo-upload-delete" title="Delete" type="button">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                                <div class="img-wrapper"><img alt="" src="/doc-demo.jpg"></div>
+                                                <div class="caption-block">
+                                                    <span class="file-name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 order-2 mb-1">
+                                            <div class="upl-docs-module__upload-file">
+                                                <input accept="image/*" capture="camera" data-duplicate-name="captures.photoFiles[0].complexRawBase64" data-show-element="#capture_1" id="upload-captures-1" name="captures.photoFiles[0].file" type="file"/>
+                                                <label for="upload-captures-1">
+                                                    <span class="img-wrapper"><img alt="" src="/upload-camera.svg"></span>
+                                                    <span class="caption">Prendre une photo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 order-2 mb-1 d-none">
+                                            <div class="upl-docs-module__upload-file">
+                                                <input accept="image/*" capture="camera" data-duplicate-name="captures.photoFiles[1].complexRawBase64" data-show-element="#capture_2" id="upload-captures-2" name="captures.photoFiles[1].file" type="file"/>
+                                                <label for="upload-captures-2">
+                                                    <span class="img-wrapper"><img alt="" src="/upload-camera.svg"></span>
+                                                    <span class="caption">Prendre une photo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 order-2 mb-1 d-none">
+                                            <div class="upl-docs-module__upload-file">
+                                                <input accept="image/*" capture="camera" data-duplicate-name="captures.photoFiles[2].complexRawBase64" data-show-element="#capture_3" id="upload-captures-3" name="captures.photoFiles[2].file" type="file"/>
+                                                <label for="upload-captures-3">
+                                                    <span class="img-wrapper"><img alt="" src="/upload-camera.svg"></span>
+                                                    <span class="caption">Prendre une photo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="upl-docs-module__bottom-row">
+                                    <button class="btn btn-sm ml-auto disabled" data-toggle="photo-upload-submit" type="button">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12  mb-3 text-center">
+                <button class="btn" type="submit" title="Potentiel solaire">Envoyer</button>
+            </div>
+        </div>
+    </form>
+</div></div>
+
+
+    <div aria-hidden="true" class="modal fade" id="release-note_modal" role="dialog" tabindex="-1"
+        data-api="https://tucoenergieapi-prod.azurewebsites.net">
+        <div class="modal-dialog modal-dialog-centered vos-consommations__popup ecs-popup" role="document">
+            <form class="modal-content form-validate" id="release-form">
+                <div class="vos-consommations__popup-icon"><img alt="" src="/electricite-white-icon.svg"></div>
+                <div class="modal-header">
+                    <div class="h1 modal-title">ORÉE 1.1</div>
+                    <button aria-label="Fermer" class="btn close" data-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body" id="release-content">
+                    <div data-wrapper="true" style="font-size:20px;font-family:Segoe UI','Helvetica Neue',sans-serif;">
+<ul>
+	<li style=""><span style="font-size:13pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">New features</span></span></span></span></span></span>
+	<ul style="">
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#releaseNote">Release Note </a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#iso">Produit Isolation </a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#bug">Signaler un bug, un incident</a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#demo">Mode Démo </a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#login">Login, inscription, mot de passe oublié</a></span></span></span></span></span></span></li>
+	</ul>
+	</li>
+</ul>
+
+<ul>
+	<li style=""><span style="font-size:13pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">BugFix</span></span></span></span></span></span>
+
+	<ul>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span lang="EN-US" style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#message">Message d’erreur <em>Active stage is not on lead entity</em></a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#page">Page <u>Éligibilité aides</u> dans le menu de navigation</a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#gps">Coordonnées GPS &amp; Google Maps</a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#solaire">Enregistrement des réponses de l'Étude Solaire</a></span></span></span></span></span></span></li>
+		<li><span style="font-size:11pt;"><span style="line-height:normal;"><span style="vertical-align:baseline;"><span style="font-family:&quot;Calibri Light&quot;,sans-serif;"><a href="#scroll">Défilement automatique de la page</a></span></span></span></span></li>
+	</ul>
+	</li>
+	<li style=""><span style="font-size:13pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">HotFix </span></span></span></span></span></span>
+	<ul style="">
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#order">Commandes et signature par email</a></span></span></span></span></span></span></li>
+		<li style=""><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 72.0pt"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a href="#api">Commandes par API et de la signature en direct</a></span></span></span></span></span></span></li>
+	</ul>
+	</li>
+</ul>
+
+<div><br>
+<span data-wrapper="true" style="font-family:&quot;Calibri Light&quot;,sans-serif;font-size:12pt;"><span style="line-height:normal;"><span style="vertical-align:baseline;"><a id="releaseNote"></a><a>Release Note</a></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Ajout d’une Release Note et sa notification à chaque nouvelle version d'Orée afin de connaitre les améliorations et les corrections apportées à l’application.</span></span></span></span></span></div>
+
+<div><br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="iso">Produit Isolation</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Ajout dans le parcours des questions nécessaires pour tester l’éligibilité à différents produits d’isolation (étages, isolation des murs par l'extérieur, planchers bas et combles) </span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Ajout dans la sélection des produits du produit d’isolation.</span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Mise à jour des documents pour intégrer les produits d’isolation.</span></span></span></span></span><br>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="bug">Bug Report</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Ajout d’un bouton dans le menu principal pour faire remonter tout incident ou suggérer une amélioration.</span></span></span></span></span><br>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="demo">Mode Démo</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Ajout d’un mode Démo pour réaliser une simulation d’étude où les données seront automatiquement supprimées après 15 jours.</span></span></span></span></span><br>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="login">Login, inscription et mot de passe oublié</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Ajout d’un pop-up explicitant les conditions de création de mot de passe (minimum une majuscule, une minuscule et un chiffre) </span></span></span></span></span></div>
+
+<div><br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span lang="EN-US" style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="message">Message d’erreur Active stage is not on lead entity</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction d’un bug qui empêchait de lancer la simulation d’économies d’énergie qui affichait le message “Active stage is not on lead entity”.</span></span></span></span></span><br>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="page">Éligibilité Aides dans le menu de navigation</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction d’un bug qui faisait parfois disparaitre du header l’étape d’éligibilités aux aides.</span></span></span></span></span><br>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="gps">Coordonnées GPS &amp; Google Maps</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction d’un bug qui dans certain cas provoquait des coordonnées GPS erronée en raison d’erreurs ou d’indisponibilité de l’API Google Maps.</span></span></span></span></span></div>
+
+<div>&nbsp;</div>
+
+<div>
+<div><span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="solaire">Enregistrement des réponses de l'Étude Solaire</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction d'un bug qui faisait que certaines&nbsp;réponses de l'étude solaire ne s'enregistraient pas.</span></span></span></span></span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="scroll">Défilement automatique</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction du défilement automatique&nbsp;de la page lorsque la question&nbsp;précédente&nbsp;est renseignée.</span></span></span></span></span></div>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="order">Commandes et signature par email</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction d’un bug qui empêchait la mise à jour du statut des commandes lors de la signature par email.</span></span></span></span></span><br>
+<br>
+<span style="font-size:12pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif"><a id="api">Commandes par API et signature en direct</a></span></span></span></span></span><br>
+<span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:baseline"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Calibri Light&quot;,sans-serif">- Correction d’un bug qui empêchait la mise à jour du statut des commandes par API lors de la signature en direct.</span></span></span></span></span></div>
+
+<div>&nbsp;</div>
+
+<div>&nbsp;</div>
+</div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn centered" id="set-as-read" type="button">Marquer comme lu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://oree-prod.powerappsportals.com/jquery-3.3.1.min.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/bootstrap.bundle.min.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/plugins.min.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/main.min.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/lodash.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/autocomplete.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/classie.js"></script>
+    <script src="https://oree-prod.powerappsportals.com/notificationFx.js"></script>
+    <script>
+        var notification = {};
+        var prospectId = GetUrlParams(window.location.search, "prospectId");
+        var isdemo = GetUrlParams(window.location.search, "isdemo");
+        if (prospectId == null || prospectId == "") {
+            sessionStorage.clear();
+        }
+
+        if (!!isdemo && isdemo.toLowerCase() == "true") {
+            sessionStorage.setItem("isdemo", "true");
+            $("#demo_mode").fadeIn();
+        }
+
+        var formObj = {};
+        //logout
+        $('#logout_link').click(function () {
+            localStorage.removeItem('profileImg');
+            sessionStorage.clear();
+            return true;
+        });
+
+        //Load profile
+        function LoadProfilePicture() {
+            showLoading();
+            $.ajax("https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc")
+                .done(function (data) {
+                    if (data.entityImage != null) {
+                        let profileImg = "data:image/png;base64," + data.entityImage;
+
+                        localStorage.setItem('profileImg', profileImg);
+                        $('#header-menu_avatar_img_block img').attr('src', profileImg);
+                        hideLoading();
+                    }
+                    hideLoading();
+                })
+                .fail(function (xhr) {
+                    console.error(xhr);
+                    hideLoading();
+                });
+        }
+
+        if (localStorage.getItem('profileImg') == null) {
+            LoadProfilePicture();
+        } else {
+            let profileImg = localStorage.getItem('profileImg');
+            $('#header-menu_avatar_img_block img').attr('src', profileImg);
+        }
+
+        //Create New prospect
+
+        $(document).ready(() => {
+            formObj = BuildFormObject();
+            GetIfNotificationIsRead();
+        });
+
+
+        function ShowNewVersionNotification() {
+            // show the notification
+            var svgshape = document.getElementById('notification-shape'),
+                s = Snap(svgshape.querySelector('svg')),
+                path = s.select('path'),
+                pathConfig = {
+                    from: path.attr('d'),
+                    to: svgshape.getAttribute('data-path-to')
+                }
+            path.animate({
+                'path': pathConfig.to
+            }, 300, mina.easeinout);
+
+            // create the notification
+             notification = new NotificationFx({
+                wrapper: svgshape,
+                message: '<p><span class="icon icon-bulb"></span> Une nouvelle version de Orée est arrivée ! <br><a href="#" data-target="#release-note_modal" data-toggle="modal">Voir détails</a></br></p>',
+                layout: 'other',
+                effect: 'cornerexpand',
+                type: 'notice', // notice, warning or error
+                ttl: 60000,
+                onClose: function () {
+                    setTimeout(function () {
+                        path.animate({
+                            'path': pathConfig.from
+                        }, 300, mina.easeinout);
+                    }, 200);
+                }
+            });
+            notification.show();
+        }
+
+        $('#release-note_modal').on('shown.bs.modal', function () {
+            notification.dismiss();
+        })
+
+        $('#object_coord_submit').on('click', function (e) {
+            if ($(this).parents('form').valid()) {
+                e.preventDefault();
+
+
+                var _url = "https://tucoenergieapi-prod.azurewebsites.net/api/prospect";
+                var _method = "POST";
+
+                if (prospectId != null && prospectId != "") {
+                    _url = "https://tucoenergieapi-prod.azurewebsites.net/api/prospect/{0}/UpdateLead".format(prospectId);
+                    _method = "PUT";
+                }
+
+                let infos = BuildFormObject();
+                if (_.isEqual(formObj, infos)) {
+                    sessionStorage.setItem("prospectId", prospectId);
+                    window.location = "/etude-logement?prospectId={0}".format(prospectId);
+                    return;
+                }
+
+                showLoading();
+                if (!!isdemo && isdemo.toLowerCase() == "true") {
+                    infos.isDemo = true;
+                }
+                $.ajax({
+                    method: _method,
+                    contentType: "application/json",
+                    url: _url,
+                    data: JSON.stringify(infos),
+                    dataType: "json"
+                }).done(function (data, textstatus, xhr) {
+                    if (xhr.status == 200) {
+                        hideLoading();
+                        sessionStorage.setItem("prospectId", data);
+                        window.location.href = "/etude-logement?prospectId={0}".format(data);
+                    }
+                }).fail(function (xhr, textstatus, msg) {
+                    var errorObj = JSON.parse(xhr.responseText);
+                    $("#error-modal .error-msg").html(errorObj.error);
+                    $("#error-modal").modal('show');
+                    console.error(xhr);
+                    hideLoading();
+                });
+            }
+        });
+
+        function BuildFormObject() {
+            var form = document.querySelector('#prospectForm');
+            var formData = new FormData(form);
+            const formEntries = formData.entries();
+            const infos = Object.assign(...Array.from(formEntries, ([x, y]) => ({
+                [x]: y
+            })));
+            infos.CommercialId = "c70a745c-69d3-eb11-bacc-000d3aae8ffc";
+            infos.ConfirmateurId = "3113460e-8454-e911-a95c-000d3a454ac5";
+            infos.agenceId = "1fc26b68-69d3-eb11-bacc-000d3aae8ffc"
+            return infos;
+        }
+
+
+        $(document).on('click', '#set-as-read', function (e) {
+            $("#release-note_modal").modal('hide');
+            var settings = {
+                "url": "https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc/SetNotificationRead",
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify(true),
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        })
+
+
+        function GetIfNotificationIsRead() {
+            var settings = {
+                "url": "https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc/GetNotificationRead",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                if (response != true && $('#release-content').html().trim().length > 0) {
+                    setTimeout(() => {
+                        ShowNewVersionNotification();
+                    }, 1000);
+                }
+            });
+        }
+    </script>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhZGagIYXJ4SvCkdbDthRvKahuduXBsYc&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+</body>
+
+</html>

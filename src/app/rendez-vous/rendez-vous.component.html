@@ -1,0 +1,253 @@
+<body>
+
+
+	
+	<div id="loading_block" class="loading-block"></div>
+
+	<div class="orientation-block">
+		<div class="orientation-text">Merci de tourner votre téléphone</div>
+	</div>
+	<div class="header-menu" id="header_menu">
+		<div class="header-menu__inner-content">
+			<button type="button" title="Close" data-toggle="close-menu"
+				class="header-close-toggle header-menu__close-button"></button>
+
+			<div class="header-menu__user-info">
+				<div class="left-part">
+					<div class="name">Alioune Sall</div>
+					<a href="/Account/Login/LogOff?returnUrl=%2FSignIn%2F" class="header-menu__sign-out">Déconnexion</a>
+				</div>
+
+				<div class="header-menu__avatar-img" id="header-menu_avatar_img_block"><img
+						src="/avatar-placeholder.svg" alt=""></div>
+			</div>
+
+			<div class="header-menu__nav">
+				<ul>
+					<li class="my-account"><a href="/mon-compte">Mon compte</a></li>
+					<li><a href="/dashboard">Mon tableau de bord</a></li>
+					<li><a href="/mes-rendez-vous">Mes rendez-vous</a></li>
+					<li><a href="/my-projects">Mes études</a></li>
+					<li><a href="/books-de-presentation">Mes book de présentation</a></li>
+					<li><a href="/coordonnees-du-beneficiaire">Démarrer une étude</a></li>
+				</ul>
+			</div>
+
+			<div class="header-menu__logo"><img src="/oree_logo_menu.png" alt=""></div>
+		</div>
+	</div>
+
+	<div class="header-menu__overlay" data-toggle="close-menu" id="header_menu_overlay"></div>
+
+
+
+	<div class="my-projects">
+		<button type="button" data-toggle="open-menu"
+			class="header-menu-toggle account-block__menu-button"><span></span></button>
+
+		<div class="my-projects__topbar">
+			<div class="container">
+				<div class="my-projects__topbar-row">
+					<h1 class="text-primary">Mes rendez-vous</h1>
+
+					<div class="text-input-wrapper my-projects__search-input">
+						<input id="projects_input_search" type="text" class="form-control" placeholder="Recherche">
+						<i class="material-icons">search</i>
+						<button type="button" data-toggle="reset" class="tech-control-button"><i
+								class="material-icons">close</i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="my-projects__main-part">
+			<div class="container">
+				<div class="my-projects__table-panel">
+					<table id="projects_table" class="table my-projects__table">
+						<thead>
+							<tr>
+								<th>Date RDV</th>
+								<th>Heure RDV</th>
+								<th>Nom</th>
+								<th>Prénom</th>
+								<th>Adresse</th>
+								<th>Code postal</th>
+								<th>Ville</th>
+								<th>Mobile</th>
+								<th>Démarrer étude</th>
+								<th>Statuts RDV</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+							<tr>
+								<td>27 juillet 2021</td>
+								<td data-date="2021-07-27T16:12:33Z" class="hour">16:12</td>
+								<td>vicen</td>
+								<td>gomis</td>
+								<td>76 Rue de Créqui</td>
+								<td>69006</td>
+								<td>Lyon</td>
+								<td><a href="+33 6 78 90 98 76">+33 6 78 90 98 76</a></td>
+								<td>
+									<a href="/coordonnees-du-beneficiaire/?prospectId=80f9fa3e-f1ee-eb11-ba5e-0003ff0ae288" class="arrow-button next"><i class="material-icons">chevron_left</i></a>
+								</td>
+								<td>
+									<div class="my-projects__status-select">
+										<select name="" id="" class="form-control">
+											<option data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+											<option value="RDV réalisé">RDV réalisé</option>
+											<option value="Porte">Porte</option>
+											<option value="RDV non réalisé">RDV non réalisé</option>
+											<option value="RDV annulé">RDV annulé</option>
+											<option value="RDV reporté">RDV reporté</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>28 juillet 2021</td>
+								<td data-date="2021-07-28T13:04:47Z" class="hour">13:04</td>
+								<td>fld</td>
+								<td>lkl</td>
+								<td>jjklj</td>
+								<td>78999</td>
+								<td>Dakar senegal</td>
+								<td><a href="+33 (789) 909 9090">+33 (789) 909 9090</a></td>
+								<td>
+									<a href="/coordonnees-du-beneficiaire/?prospectId=4ab28b2e-a0ef-eb11-ba5e-0003ff0ae288" class="arrow-button next"><i class="material-icons">chevron_left</i></a>
+								</td>
+								<td>
+									<div class="my-projects__status-select">
+										<select name="" id="" class="form-control">
+											<option data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+											<option value="RDV réalisé">RDV réalisé</option>
+											<option value="Porte">Porte</option>
+											<option value="RDV non réalisé">RDV non réalisé</option>
+											<option value="RDV annulé">RDV annulé</option>
+											<option value="RDV reporté">RDV reporté</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script src="/jquery-3.3.1.min.js"></script>
+	<script src="/bootstrap.bundle.min.js"></script>
+	<script src="/plugins.min.js"></script>
+	<script src="/main.min.js"></script>
+
+
+	<script>
+
+		//clear session storage
+		sessionStorage.clear();
+
+		//logout
+
+		$('#logout_link').click(function () { localStorage.removeItem('profileImg'); return true; });
+
+		//Load profile
+	function LoadProfilePicture() {
+		showLoading();
+		$.ajax("https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc")
+			.done(function (data) {
+				if (data.entityImage != null) {
+					let profileImg = "data:image/png;base64," + data.entityImage;
+
+					localStorage.setItem('profileImg', profileImg);
+					$('#header-menu_avatar_img_block img').attr('src', profileImg);
+					hideLoading();
+				}
+				else{
+					hideLoading();
+				}
+			})
+			.fail(function (xhr) {
+				console.error(xhr);
+				hideLoading();
+			});
+	}
+
+		if (localStorage.getItem('profileImg') == null) {
+			LoadProfilePicture();
+		}
+		else {
+			let profileImg = localStorage.getItem('profileImg');
+			$('#header-menu_avatar_img_block img').attr('src', profileImg);
+		}
+
+
+		showLoading();
+
+		$(document).ready(function () {
+
+			var Items = $("#projects_table tbody").children();
+			$(Items).each((index, elmt) => {
+				var td = $(elmt).find("td.hour");
+
+				var date = new Date($(td).data('date'));
+				$(td).text(moment(date).format("H:mm"));
+			});
+			hideLoading();
+			$.fn.dataTable.moment('DD/MM/YYYY');
+
+			var projectsTable = $('#projects_table').DataTable({
+				language: {
+					processing: "Traitement en cours...",
+					search: "Rechercher&nbsp;:",
+					lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+					info: "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+					infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+					infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+					infoPostFix: "",
+					loadingRecords: "Chargement en cours...",
+					zeroRecords: "Aucun rendez-vous trouvé",
+					emptyTable: "Aucune donnée disponible dans le tableau",
+					paginate: {
+						first: "Premier",
+						previous: "Pr&eacute;c&eacute;dent",
+						next: "Suivant",
+						last: "Dernier"
+					},
+					aria: {
+						sortAscending: ": activer pour trier la colonne par ordre croissant",
+						sortDescending: ": activer pour trier la colonne par ordre décroissant"
+					}
+				},
+				paging: false,
+				searching: true,
+				info: false,
+				columnDefs: [
+					{
+						type: 'datetime-moment',
+						targets: -1
+					},
+					{
+						type: 'time',
+						targets: -1
+					}
+				]
+			});
+
+			$('#projects_input_search').on('change keypress keyup blur', function () {
+				projectsTable.search(this.value).draw();
+			});
+		});
+	</script>
+
+
+
+</body>
+

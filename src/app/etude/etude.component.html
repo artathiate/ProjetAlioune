@@ -1,0 +1,2235 @@
+<!doctype html>
+<html lang="fr" ng-app="OreeApp" ng-cloak>
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+        <!-- Adaptivity -->
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" name="viewport">
+
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta content="#ffa929" name="theme-color">
+
+        <!-- Windows Phone -->
+        <meta content="#ffa929" name="msapplication-navbutton-color">
+
+        <!-- iOS Safari -->
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+        <meta content="yes" name="apple-touch-fullscreen">
+
+        <!-- CONFIG -->
+        <meta content="telephone=no" name="format-detection">
+        <title>Etude logement - Orée</title>
+
+        <!-- CSS -->
+        <link href="https://oree-prod.powerappsportals.com/main.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Roboto font -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=latin-ext" rel="stylesheet">
+
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+        <link href="https://oree-prod.powerappsportals.com/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+        <link href="https://oree-prod.powerappsportals.com/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
+        <link href="https://oree-prod.powerappsportals.com/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+        <link href="https://oree-prod.powerappsportals.com/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+        <link href="https://oree-prod.powerappsportals.com/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+        <link href="https://oree-prod.powerappsportals.com/manifest.json" rel="manifest">
+        <meta content="#ffffff" name="msapplication-TileColor">
+        <meta content="ms-icon-144x144.png" name="msapplication-TileImage">
+        <meta content="#ffffff" name="theme-color">
+
+        <script src="https://oree-prod.powerappsportals.com/angular.min.js"></script>
+        <script src="https://oree-prod.powerappsportals.com/angular-resource.min.js"></script>
+        <script src="https://oree-prod.powerappsportals.com/oree.controller.js"></script>
+        <script src="https://oree-prod.powerappsportals.com/oree.service.js"></script>
+    </head>
+
+    <body ng-controller="OreeController as vm">
+
+
+
+
+
+        <div class="loading-block" id="loading_block"></div>
+
+        <div class="orientation-block">
+            <div class="orientation-text">Merci de tourner votre téléphone</div>
+        </div>
+
+
+        <header class="page-header">
+            <div class="container">
+
+                <div class="page-header__main-row">
+                    <button class="header-menu-toggle page-header__menu-toggle" data-toggle="open-menu" title="Menu" type="button">
+                        <span></span>
+                    </button>
+
+                    <div class="page-header__nav-links">
+                        <ul id="header_nav">
+                            <li class="completed">
+                                <a href="#" id="coord-du-benef-link">Coordonnées du client</a>
+                            </li>
+                            <li class="active">
+                                <a href="#" id="etude-logt-link">Étude du logement</a>
+                            </li>
+                            <li>
+                                <a href="#" id="etude-potentiel-sol-link">Étude du potentiel solaire</a>
+                            </li>
+                            <li>
+                                <a href="#" id="vos-conso-link">Vos consommations<span class="d-none d-md-inline">
+                                        et
+                                                                                                                                                            équipements</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="eligibilite-aide-link">Éligibilité aux
+                                                                                                                                            aides</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="page-header__progressbar">
+                <div class="left-placeholder"></div>
+
+                <div class="container">
+
+                    <div class="inner-progress" style="width: 18%;"></div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="header-menu" id="header_menu">
+            <div class="header-menu__inner-content">
+                <button class="header-close-toggle header-menu__close-button" data-toggle="close-menu" title="Close" type="button"></button>
+
+                <div class="header-menu__user-info">
+                    <div class="left-part">
+                        <div class="name">Alioune Sall</div>
+                        <a class="header-menu__sign-out" href="https://oree-prod.powerappsportals.com/Account/Login/LogOff?returnUrl=%2FSignIn%2F" id="logout_link">Déconnexion</a>
+                    </div>
+
+                    <div class="header-menu__avatar-img" id="header-menu_avatar_img_block"><img alt="" src="https://oree-prod.powerappsportals.com/avatar-placeholder.svg"></div>
+                </div>
+
+                <div class="header-menu__nav">
+                    <ul>
+                        <li class="my-account">
+                            <a href="https://oree-prod.powerappsportals.com/mon-compte">Mon compte</a>
+                        </li>
+                        <li>
+                            <a href="https://oree-prod.powerappsportals.com/dashboard">Mon tableau de bord</a>
+                        </li>
+                        <li>
+                            <a href="https://oree-prod.powerappsportals.com/mes-rendez-vous">Mes rendez-vous</a>
+                        </li>
+                        <li>
+                            <a href="https://oree-prod.powerappsportals.com/my-projects">Mes études</a>
+                        </li>
+                        <li>
+                            <a href="https://oree-prod.powerappsportals.com/books-de-presentation">Mes book de présentation</a>
+                        </li>
+                        <li>
+                            <a href="https://oree-prod.powerappsportals.com/coordonnees-du-beneficiaire">Démarrer une étude</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="header-menu__logo"><img alt="" src="https://oree-prod.powerappsportals.com/oree_logo_menu.png"></div>
+            </div>
+        </div>
+
+        <div class="header-menu__overlay" data-toggle="close-menu" id="header_menu_overlay"></div>
+
+
+        <div class="main-page-wrap">
+            <div class="main-page-wrap__container">
+                <div class="container">
+                    <div class="row etude-logement__main-row">
+                        <div class="etude-logement__sidebar-block">
+                            <div class="etude-logement__sidebar-content">
+                                <h3>Votre étude</h3>
+
+                                <div class="etude-logement__sidebar-part active">
+                                    <div class="etude-logement__part-title collapser active">
+                                        <span>Type D'occupation</span>
+                                        <i class="material-icons">expand_more</i>
+                                    </div>
+
+                                    <ul class="etude-logement__part-list collapse show">
+                                        <li data-control-name="type_occupation">
+                                            <div class="val full-width"></div>
+                                        </li>
+
+                                        <li class="active" data-control-name="number_of_inhabitants">
+                                            <div class="label">Nombre d'occupants&nbsp;:</div>
+                                            <div class="val">1</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="etude-logement__sidebar-part active">
+                                    <div class="etude-logement__part-title collapser active">
+                                        <span>Architecture de la maison</span>
+                                        <i class="material-icons">expand_more</i>
+                                    </div>
+
+                                    <ul class="etude-logement__part-list collapse show">
+                                        <li data-control-name="year_of_construction">
+                                            <div class="label">Construction&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="coefficient_of_isolation">
+                                            <div class="label">Isolation&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                        <li data-control-name="construction_square">
+                                            <div class="label">Surface au sol&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="surface_habitable">
+                                            <div class="label">Surface habitable&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li class="active" data-control-name="number_of_rooms">
+                                            <div class="label">Nb de pièces&nbsp;:</div>
+                                            <div class="val">1</div>
+                                        </li>
+
+                                        <li data-control-name="house_neighbors_position">
+                                            <div class="label">Positionnement&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="shape_of_the_house">
+                                            <div class="label">Forme&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="number_of_levels">
+                                            <div class="label">Niveaux&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                        <li data-control-name="number_of_floor">
+                                            <div class="label">Nombre d'étages&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="ceiling_height">
+                                            <div class="label">Hauteur&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="type_of_roof">
+                                            <div class="label">Type de toit&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="cover_type">
+                                            <div class="label">Type de couverture&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                        <li data-control-name="cover_typeTuile">
+                                            <div class="label">Type de tuiles&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                        <li data-control-name="cover_typeTole">
+                                            <div class="label">Type de tôles&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="attic_type">
+                                            <div class="label">Type de combles&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="attic_insulation">
+                                            <div class="label">Combles isolés&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="wall_type">
+                                            <div class="label">Murs&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="isolated_walls">
+                                            <div class="label">Murs isolés&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="glazing_type">
+                                            <div class="label">Vitrage&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="ventilation_type">
+                                            <div class="label">Ventilation&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="jardin">
+                                            <div class="label">Jardin&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                        <li data-control-name="surface_jardin">
+                                            <div class="label">Surface du jardin&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                        <li data-control-name="basement_type">
+                                            <div class="label">Type de<br>sous-sol:</div>
+                                            <div class="val"></div>
+                                        </li>
+
+                                        <li data-control-name="electrical_installation_type">
+                                            <div class="label">Installation&nbsp;:</div>
+                                            <div class="val"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="etude-logement__sidebar-part">
+                                    <div class="etude-logement__part-title text-success collapser active">
+                                        <span>Sensibilité à l'environnement</span>
+                                        <i class="material-icons">expand_more</i>
+                                    </div>
+
+                                    <ul class="etude-logement__part-list collapse show">
+                                        <li data-control-name="level_of_sensitivity">
+                                            <div class="label">Sensibilité :</div>
+                                            <div class="val"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="etude-logement__main-content">
+                            <form class="etude-logement__panel form-validate" id="etude_logement_form">
+                                <h2 class="text-center font-weight-medium mb-3 text-primary">Type d'occupation</h2>
+
+                                <h3 class="text-center mb-4">Statut d'occupation</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Propriétaire occupant" id="type_occupation_1" name="type_occupation" ng-checked="vm.prospect.tuco_typeoccupation.value == 629950000" ng-model="vm.prospect.tuco_typeoccupation.value" required type="radio" value="629950000">
+                                            <label for="type_occupation_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_Proprietaire-occupant.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_Proprietaire-occupant.svg">
+                                                </span>
+                                                <span class="caption-name">Propriétaire
+                                                    <br>occupant</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Propriétaire d'une résidence secondaire" id="type_occupation_2" name="type_occupation" ng-checked="vm.prospect.tuco_typeoccupation.value == 629950001" ng-model="vm.prospect.tuco_typeoccupation.value" required type="radio" value="629950001">
+                                            <label for="type_occupation_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_proprietaire-maison-secondaire.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_proprietaire-maison-secondaire.svg">
+                                                </span>
+                                                <span class="caption-name" style="font-size: 14px; line-height: 18px; letter-spacing: -0.01em;">Propriétaire
+                                                                                                                                                                                                            d'une résidence secondaire</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Propriétaire bailleur" id="type_occupation_3" name="type_occupation" ng-checked="vm.prospect.tuco_typeoccupation.value == 629950002" ng-model="vm.prospect.tuco_typeoccupation.value" required type="radio" value="629950002">
+                                            <label for="type_occupation_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_proprietaire-bailleur.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_proprietaire-bailleur.svg">
+                                                </span>
+                                                <span class="caption-name">Propriétaire
+                                                    <br>bailleur</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Locataire" id="type_occupation_4" name="type_occupation" ng-checked="vm.prospect.tuco_typeoccupation.value == 629950003" ng-model="vm.prospect.tuco_typeoccupation.value" required type="radio" value="629950003">
+                                            <label for="type_occupation_4">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_Locataire.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_Locataire.svg">
+                                                </span>
+                                                <span class="caption-name">Locataire</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Nombre d'occupants</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="input-group quant-input-group">
+                                        <div class="input-group-prepend">
+                                            <a class="quant-button minus" data-quant-control="minus" href="javascript:;" title="Minus"></a>
+                                        </div>
+                                        <input class="form-control number-of-inhabitants-input only-digits no-pointer" default-value="1" inputmode="decimal" max="99" min="1" name="number_of_inhabitants" ng-model="vm.prospect.tuco_nombredoccupants" pattern="[0-9]*" readonly set-default-value type="text">
+
+                                        <div class="input-group-append">
+                                            <a class="quant-button plus" data-quant-control="plus" href="javascript:;" title="Plus"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h2 class="text-center font-weight-medium mb-3 text-primary">Architecture de la maison</h2>
+
+                                <h3 class="text-center mb-4">Année de construction</h3>
+
+                                <div class="etude-logement__fieldsets mb-5">
+                                    <div class="select-input-wrapper">
+                                        <select class="form-control text-center" id="etude_logement_year_of_contruction" name="year_of_construction" ng-model="vm.prospect.tuco_annedeconstruction" required>
+                                            <option value="" data-display="<span class='placeholder'>Choisir</span>" selected hidden disabled>Choisir</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-center mb-4">Coefficient d'isolation</h3>
+
+                                <div class="etude-logement__fieldsets mb-5">
+                                    <div class="select-input-wrapper">
+                                        <select class="form-control text-center" convert-to-number id="etude_logement_coefficient_isolation" name="coefficient_of_isolation" ng-model="vm.prospect['tuco_coefficientdisolation'].value" required>
+                                            <option value="" data-display="<span class='placeholder'>Choisir</span>" selected hidden disabled>Choisir</option>
+                                            <option value="629950001">1,6 - Norme Année 1960</option>
+                                            <option value="629950002">1,3 - Norme Année 1980</option>
+                                            <option value="629950003">1 - Norme Année 2000</option>
+                                            <option value="629950004">0,65 - Norme Année 2005</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-center mb-4">Surface au sol (m²)</h3>
+
+                                <div class="etude-logement__fieldsets mb-5">
+                                    <div class="text-input-wrapper">
+                                        <input class="form-control text-center num-input only-digits" data-sidebar-postfix=" m²" inputmode="decimal" name="construction_square" ng-model="vm.prospect.tuco_surfaceausol" pattern="[0-9]*" required type="text">
+                                    </div>
+                                </div>
+
+                                <h3 class="text-center mb-4">Surface habitable (m²)
+                                </h3>
+
+                                <div class="etude-logement__fieldsets mb-5">
+                                    <div class="text-input-wrapper">
+                                        <input class="form-control text-center num-input only-digits" data-sidebar-postfix=" m²" inputmode="decimal" name="surface_habitable" ng-model="vm.prospect.tuco_surfacehabitable" pattern="[0-9]*" required type="text">
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Nombre de pièces</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="input-group quant-input-group">
+                                        <div class="input-group-prepend">
+                                            <a class="quant-button minus" data-quant-control="minus" href="javascript:;" title="Minus"></a>
+                                        </div>
+                                        <input class="form-control only-digits" default-value="1" inputmode="decimal" max="15" min="1" name="number_of_rooms" ng-model="vm.prospect.tuco_nombredepieces" pattern="[0-9]*" readonly set-default-value type="text">
+
+                                        <div class="input-group-append">
+                                            <a class="quant-button plus" data-quant-control="plus" href="javascript:;" title="Plus"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Positionnement de la maison</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Maison indépendante" id="house_neighbors_position_1" name="house_neighbors_position" ng-checked="vm.prospect.tuco_positionnementdelamaison.value == 629950000" ng-model="vm.prospect.tuco_positionnementdelamaison.value" required type="radio" value="629950000">
+                                            <label for="house_neighbors_position_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_ind%C3%A9pendante.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_ind%C3%A9pendante.svg">
+                                                </span>
+                                                <span class="caption-name">Indépendant</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Maison mitoyenne <br>1 côté" id="house_neighbors_position_2" name="house_neighbors_position" ng-checked="vm.prospect.tuco_positionnementdelamaison.value == 629950001" ng-model="vm.prospect.tuco_positionnementdelamaison.value" required type="radio" value="629950001">
+                                            <label for="house_neighbors_position_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_mitoyen%201%20c%C3%B4t%C3%A9.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_mitoyen%201%20c%C3%B4t%C3%A9.svg">
+                                                </span>
+                                                <span class="caption-name">Mitoyen 1 côté</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Maison mitoyenne <br>2 côtés" id="house_neighbors_position_3" name="house_neighbors_position" ng-checked="vm.prospect.tuco_positionnementdelamaison.value == 629950002" ng-model="vm.prospect.tuco_positionnementdelamaison.value" required type="radio" value="629950002">
+                                            <label for="house_neighbors_position_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_mitoyen%202%20c%C3%B4t%C3%A9s.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_mitoyen%202%20c%C3%B4t%C3%A9s.svg">
+                                                </span>
+                                                <span class="caption-name">Mitoyen 2 côtés</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Forme de la maison</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Carrée" id="shape_of_the_house_1" name="shape_of_the_house" ng-checked="vm.prospect.tuco_formedelamaison.value == 629950000" required type="radio" value="629950000">
+                                            <label for="shape_of_the_house_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_carr%C3%A9-rectangulaire.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_carr%C3%A9-rectangulaire.svg">
+                                                </span>
+                                                <span class="caption-name">Carrée</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Allongée" id="shape_of_the_house_2" name="shape_of_the_house" ng-checked="vm.prospect.tuco_formedelamaison.value == 629950001" required type="radio" value="629950001">
+                                            <label for="shape_of_the_house_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_allong%C3%A9e.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_allong%C3%A9e.svg">
+                                                </span>
+                                                <span class="caption-name">Allongée</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Développée" id="shape_of_the_house_3" name="shape_of_the_house" ng-checked="vm.prospect.tuco_formedelamaison.value == 629950002" required type="radio" value="629950002">
+                                            <label for="shape_of_the_house_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_d%C3%A9velopp%C3%A9e.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_d%C3%A9velopp%C3%A9e.svg">
+                                                </span>
+                                                <span class="caption-name">Développée</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Nombre de niveau habitables (hors combles)</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="1" id="number_of_levels_1" name="number_of_levels" ng-checked="vm.prospect.tuco_nombredeniveaux.value == 629950003" required type="radio" value="629950003" ng-model="vm.prospect.tuco_nombredeniveaux.value">
+
+                                            <label for="number_of_levels_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_1niveau.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_1niveau.svg">
+                                                </span>
+                                                <span class="caption-name">1</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="2" id="number_of_levels_2" name="number_of_levels" ng-checked="vm.prospect.tuco_nombredeniveaux.value == 629950000" required type="radio" value="629950000" ng-model="vm.prospect.tuco_nombredeniveaux.value">
+                                            <label for="number_of_levels_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_2niveaux.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_2niveaux.svg">
+                                                </span>
+                                                <span class="caption-name">2</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="3" id="number_of_levels_3" name="number_of_levels" ng-checked="vm.prospect.tuco_nombredeniveaux.value == 629950001" required type="radio" value="629950001" ng-model="vm.prospect.tuco_nombredeniveaux.value">
+                                            <label for="number_of_levels_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_3niveaux.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_3niveaux.svg">
+                                                </span>
+                                                <span class="caption-name">3</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="3+" id="number_of_levels_more" name="number_of_levels" ng-checked="vm.prospect.tuco_nombredeniveaux.value == 629950002" required type="radio" value="629950002" ng-model="vm.prospect.tuco_nombredeniveaux.value">
+                                            <label for="number_of_levels_more">
+                                                <span class="img-wrapper center-img">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_more_niveaux.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selection_more_niveaux.svg">
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                        <h3 class="text-center mb-4" ng-if="vm.prospect.tuco_nombredeniveaux.value == 629950002">Précisez le nombre d'étages</h3>
+                                        <div class="etude-logement__fieldsets mb-5" ng-if="vm.prospect.tuco_nombredeniveaux.value == 629950002">
+                                            <div class="text-input-wrapper">
+                                                <input class="form-control text-center"
+                                                    name="number_of_floor" required type="text" ng-model="vm.prospect.tuco_nombredetages" required inputmode="decimal" max="10000" min="4">
+                                            </div>
+                                        </div>
+
+                                <h3 class="text-center mb-4">Hauteur moyenne sous plafond (m)</h3>
+
+                                <div class="etude-logement__fieldsets mb-5">
+                                    <div class="select-input-wrapper">
+                                        <select class="form-control text-center" convert-to-float data-sidebar-postfix=" m" name="ceiling_height" ng-model="vm.prospect.tuco_hauteurmoyennesousplafondm" required>
+                                            <option value="" data-display="<span class='placeholder'>Choisir</span>" selected hidden disabled>Choisir</option>
+                                            
+                                                <option value="2">2</option>
+                                            
+                                                <option value="2.25">2,25</option>
+                                            
+                                                <option value="2.5">2,5</option>
+                                            
+                                                <option value="2.75">2,75</option>
+                                            
+                                                <option value="3">3</option>
+                                            
+                                                <option value="3.25">3,25</option>
+                                            
+                                                <option value="3.5">3,5</option>
+                                            
+                                                <option value="3.75">3,75</option>
+                                            
+                                                <option value="4">4</option>
+                                            
+                                                <option value="4.25">4,25</option>
+                                            
+                                                <option value="4.5">4,5</option>
+                                            
+                                                <option value="4.75">4,75</option>
+                                            
+                                                <option value="5">5</option>
+                                            
+
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Type de toit</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Toiture à 2 versants" data-target="#toit_other_tab" data-toggle="check-tab" id="type_of_roof_1" name="type_of_roof" ng-checked="vm.prospect.tuco_typedetoit.value == 629950000" ng-model="vm.prospect.tuco_typedetoit.value" required type="radio" value="629950000">
+                                            <label for="type_of_roof_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_Toit-2-versants.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_Toit-2-versants.svg">
+                                                </span>
+                                                <span class="caption-name">Toiture à
+                                                    <br>2 versants</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Toiture à 4 versants" data-target="#toit_other_tab" data-toggle="check-tab" id="type_of_roof_2" name="type_of_roof" ng-checked="vm.prospect.tuco_typedetoit.value == 629950001" ng-model="vm.prospect.tuco_typedetoit.value" required type="radio" value="629950001">
+                                            <label for="type_of_roof_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_Toit-4-pans-92.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_Toit-4-pans-92.svg">
+                                                </span>
+                                                <span class="caption-name">Toiture à
+                                                    <br>4 versants</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Toit à une pente" data-target="#toit_other_tab" data-toggle="check-tab" id="type_of_roof_3" name="type_of_roof" ng-checked="vm.prospect.tuco_typedetoit.value == 629950002" ng-model="vm.prospect.tuco_typedetoit.value" required type="radio" value="629950002">
+                                            <label for="type_of_roof_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_Toit-1-pente.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_Toit-1-pente.svg">
+                                                </span>
+                                                <span class="caption-name">Toit à une pente</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Toit plat" data-target="#toid_tabs_content" data-toggle="check-hide-tabs" id="type_of_roof_4" name="type_of_roof" ng-checked="vm.prospect.tuco_typedetoit.value == 629950003" ng-model="vm.prospect.tuco_typedetoit.value" required type="radio" value="629950003">
+                                            <label for="type_of_roof_4">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_Toit-plat.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_Toit-plat.svg">
+                                                </span>
+                                                <span class="caption-name">Toit plat</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="" id="toid_tabs_content" ng-if="vm.prospect.tuco_typedetoit.value != 629950003 && vm.prospect.tuco_typedetoit.value">
+                                    <div class="" id="toit_other_tab">
+                                        <h3 class="text-center mb-4">Type de couverture de la toiture</h3>
+
+                                        <div class="form-row justify-content-center mb-5">
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-hide-target="#toit_tole_tab" data-sidebar-value="Tuile" data-target="#toit_tuile_tab" data-toggle="check-tab" id="cover_type_1" name="cover_type" ng-checked="vm.prospect.tuco_couverture.value == 629950002 || vm.prospect.tuco_couverture.value == 629950000 || vm.prospect.tuco_couverture.value == 629950007" ng-model="vm.cover_roof" required type="radio" value="Tuile">
+                                                    <label for="cover_type_1">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_tuiles.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_tuiles.svg">
+                                                        </span>
+                                                        <span class="caption-name">Tuile</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-sidebar-value="Ardoise" data-target="#tole_tabs_content, #tuile_tabs_content" data-toggle="check-hide-tabs" id="cover_type_2" name="cover_type" ng-checked="vm.prospect.tuco_couverture.value == 629950001" ng-model="vm.cover_roof" required type="radio" value="629950001">
+                                                    <label for="cover_type_2">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_ardoise.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_ardoise.svg">
+                                                        </span>
+                                                        <span class="caption-name">Ardoise</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-hide-target="#toit_tuile_tab" data-sidebar-value="Tôle" data-target="#toit_tole_tab" data-toggle="check-tab" id="cover_type_3" name="cover_type" ng-checked="vm.prospect.tuco_couverture.value == 629950003 || vm.prospect.tuco_couverture.value == 629950005 || vm.prospect.tuco_couverture.value == 629950006" ng-model="vm.cover_roof" required type="radio" value="Tôle">
+                                                    <label for="cover_type_3">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_tole-trap%C3%A9zoidale.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_tole-trap%C3%A9zoidale.svg">
+                                                        </span>
+                                                        <span class="caption-name">Tôle</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-sidebar-value="Fibrociment" data-target="#tole_tabs_content, #tuile_tabs_content" data-toggle="check-hide-tabs" id="cover_type_4" name="cover_type" ng-checked="vm.prospect.tuco_couverture.value == 629950004" ng-model="vm.cover_roof" required type="radio" value="629950004">
+                                                    <label for="cover_type_4">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_fibrociment.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_fibrociment.svg">
+                                                        </span>
+                                                        <span class="caption-name">Fibrociment</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="" id="tuile_tabs_content" ng-if="vm.cover_roof == 'Tuile'">
+                                            <div class="" id="toit_tuile_tab" role="tabpanel">
+                                                <h3 class="text-center mb-4">Type de tuiles</h3>
+                                                <div class="form-row justify-content-center mb-5">
+                                                    <div class="button-control__wrapper mb-2">
+                                                        <div class="button-control">
+                                                            <input data-sidebar-value="Tuiles canal" id="cover_type_5" name="cover_typeTuile" ng-checked="vm.prospect.tuco_couverture.value == 629950002 && vm.cover_roof == 'Tuile'" ng-value="629950002" required type="radio">
+                                                            <label for="cover_type_5">
+                                                                <span class="img-wrapper">
+                                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_tuiles.svg">
+                                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_tuiles.svg">
+                                                                </span>
+                                                                <span class="caption-name">Tuiles canal</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="button-control__wrapper mb-2">
+                                                        <div class="button-control">
+                                                            <input data-sidebar-value="Tuiles mécaniques" id="cover_type_6" name="cover_typeTuile" ng-checked="vm.prospect.tuco_couverture.value == 629950000 && vm.cover_roof == 'Tuile'" ng-value="629950000" required type="radio">
+                                                            <label for="cover_type_6">
+                                                                <span class="img-wrapper">
+                                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_tuiles-mecaniques.svg">
+                                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selectionnee_tuiles-mecaniques.svg">
+                                                                </span>
+                                                                <span class="caption-name">Tuiles mécaniques</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="button-control__wrapper mb-2">
+                                                        <div class="button-control">
+                                                            <input data-sidebar-value="Tuiles plates" id="cover_type_7" name="cover_typeTuile" ng-checked="vm.prospect.tuco_couverture.value == 629950007 && vm.cover_roof == 'Tuile'" ng-value="629950007" required type="radio">
+                                                            <label for="cover_type_7">
+                                                                <span class="img-wrapper">
+                                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_tuiles-plates.svg">
+                                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selectionnee_tuiles-plates.svg">
+                                                                </span>
+                                                                <span class="caption-name">Tuiles plates</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="" id="tole_tabs_content" ng-if="vm.cover_roof == 'Tôle'">
+                                            <div class="" id="toit_tole_tab" role="tabpanel">
+                                                <h3 class="text-center mb-4">Type de tôles</h3>
+                                                <div class="form-row justify-content-center mb-5">
+                                                    <div class="button-control__wrapper mb-2">
+                                                        <div class="button-control">
+                                                            <input data-sidebar-value="Tôle à joint debout" id="cover_type_8" name="cover_typeTole" ng-checked="vm.prospect.tuco_couverture.value == 629950003 && vm.cover_roof == 'Tôle'" ng-value="629950003" required type="radio">
+                                                            <label for="cover_type_8">
+                                                                <span class="img-wrapper">
+                                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_tole-joint-debout.svg">
+                                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_tole-joint-debout.svg">
+                                                                </span>
+                                                                <span class="caption-name">Tôle à joint debout</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="button-control__wrapper mb-2">
+                                                        <div class="button-control">
+                                                            <input data-sidebar-value="Tôle trapézoïdale" id="cover_type_9" name="cover_typeTole" ng-checked="vm.prospect.tuco_couverture.value == 629950005 && vm.cover_roof == 'Tôle'" ng-value="629950005" required type="radio">
+                                                            <label for="cover_type_9">
+                                                                <span class="img-wrapper">
+                                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_tole-trapezoidale.svg">
+                                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selectionnee_tole-trapezoidale.svg">
+                                                                </span>
+                                                                <span class="caption-name">Tôle trapézoïdale</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="button-control__wrapper mb-2">
+                                                        <div class="button-control">
+                                                            <input data-sidebar-value="Tôle ondulée" id="cover_type_10" name="cover_typeTole" ng-checked="vm.prospect.tuco_couverture.value == 629950006 && vm.cover_roof == 'Tôle'" ng-value="629950006" required type="radio">
+                                                            <label for="cover_type_10">
+                                                                <span class="img-wrapper">
+                                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_tole-ondulee.svg">
+                                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selectionnee_tole-ondulee.svg">
+                                                                </span>
+                                                                <span class="caption-name">Tôle ondulée</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                            <h3 class="text-center mb-4">Inclinaison du pan</h3>
+
+                                            <div class="etude-logement__angle-block mb-5">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="range-slider range-blue">
+                                                            <input class="rangeslider" data-max="70" data-min="0" data-postfix="°" data-sidebar-postfix="°" default-value="40" id="solaire_angle_range" name="inclinaison_du_pan" ng-model="vm.prospect.tuco_inclinaison.value" required set-default-value type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="etude-logement__angle-img" id="solaire_angle_img">
+                                                    <img alt="" src="https://oree-prod.powerappsportals.com/icones-normal_30%C2%B0.svg">
+                                                </div>
+                                            </div>
+                                        <h3 class="text-center mb-4">Type de combles</h3>
+
+                                        <div class="form-row justify-content-center mb-5">
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-sidebar-value="Combles aménagés" data-target="#combles_isoles_tab" data-toggle="check-tab" id="attic_type_1" name="attic_type" ng-checked="vm.prospect.tuco_typedecombles.value == 629950000" ng-model="vm.prospect.tuco_typedecombles.value" ng-value="629950000" required type="radio">
+                                                    <label for="attic_type_1">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_combles-amenagees.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selection_combles-amenagees.svg">
+                                                        </span>
+                                                        <span class="caption-name">Combles
+                                                            <br>aménagés</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-sidebar-value="Combles perdus" data-target="#combles_isoles_tab" data-toggle="check-tab" id="attic_type_2" name="attic_type" ng-checked="vm.prospect.tuco_typedecombles.value == 629950001" ng-model="vm.prospect.tuco_typedecombles.value" ng-value="629950001" required type="radio">
+                                                    <label for="attic_type_2">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_isolation-combles-perdu.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selection_isolation-combles-perdu.svg">
+                                                        </span>
+                                                        <span class="caption-name">Combles
+                                                            <br>perdus</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="button-control__wrapper mb-2">
+                                                <div class="button-control">
+                                                    <input data-sidebar-value="Pas de comble" data-target="#combles_tab_content" data-toggle="check-hide-tabs" id="attic_type_3" name="attic_type" ng-checked="vm.prospect.tuco_typedecombles.value == 629950002" ng-model="vm.prospect.tuco_typedecombles.value" ng-value="629950002" required type="radio">
+
+                                                    <label for="attic_type_3">
+                                                        <span class="img-wrapper">
+                                                            <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icone_Pas-de-combles.svg">
+                                                            <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icone-selection_Pas-de-combles.svg">
+                                                        </span>
+                                                        <span class="caption-name">Pas de
+                                                            <br>comble</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="" id="combles_tab_content" ng-if="vm.prospect.tuco_typedecombles.value != 629950002">
+                                            <div class="" id="combles_isoles_tab">
+                                                <h3 class="text-center mb-4">Combles isolés</h3>
+
+                                                <div class="control-mobile-hidden">
+                                                    <div class="form-row etude-logement__check-buttons-row mb-5">
+                                                        <div class="col-6 col-md-4 mb-3">
+                                                            <div class="button-control no-img">
+                                                                <input class="control-duplicate" data-sidebar-value="Oui" id="attic_insulation_1" name="attic_insulation" ng-checked="vm.prospect.tuco_etatdescombles.value == 629950002" ng-model="vm.prospect.tuco_etatdescombles.value" ng-value="629950002" required type="radio">
+
+                                                                <label for="attic_insulation_1">
+                                                                    <span class="caption-name">Oui</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6 col-md-4 mb-3">
+                                                            <div class="button-control no-img">
+                                                                <input class="control-duplicate" data-sidebar-value="Non" id="attic_insulation_2" name="attic_insulation" ng-checked="vm.prospect.tuco_etatdescombles.value == 629950000" ng-model="vm.prospect.tuco_etatdescombles.value" ng-value="629950000" required type="radio">
+                                                                <label for="attic_insulation_2">
+                                                                    <span class="caption-name">Non</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6 col-md-4 mb-3">
+                                                            <div class="button-control no-img">
+                                                                <input class="control-duplicate" data-sidebar-value="Je ne sais pas" id="attic_insulation_3" name="attic_insulation" ng-checked="vm.prospect.tuco_etatdescombles.value == 629950001" ng-model="vm.prospect.tuco_etatdescombles.value" ng-value="629950001" required type="radio">
+                                                                <label for="attic_insulation_3">
+                                                                    <span class="caption-name">Je ne sais pas</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-only-mobile">
+                                                    <div class="etude-logement__fieldsets mb-5">
+                                                        <div class="select-input-wrapper">
+                                                            <select class="form-control validate[required] control-duplicate" convert-to-number name="attic_insulation" ng-model="vm.prospect.tuco_etatdescombles.value" required>
+                                                                <option value="" data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+                                                                <option value="629950002">Oui</option>
+                                                                <option value="629950000">Non</option>
+                                                                <option value="629950001">Je ne sais pas</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="combles_whish_iso_tab_content" ng-if="vm.prospect.tuco_etatdescombles.value == 629950000 && vm.prospect.tuco_typedecombles.value == 629950001">
+                                            <h3 class="text-center mb-4">Souhaitez-vous les isoler ?</h3>
+
+                                            <div>
+                                                <div class="form-row etude-logement__check-buttons-row mb-5">
+                                                    <div class="col-6 col-md-4 mb-3">
+                                                        <div class="button-control no-img">
+                                                            <input data-sidebar-value="Oui" data-toggle="check-tab" id="attic_wish_insulation_1" name="attic_wish_insulation" ng-model="vm.prospect.tuco_souhaitamenagercomble.value" ng-value="1" required type="radio">
+
+                                                            <label for="attic_wish_insulation_1">
+                                                                <span class="caption-name">Oui</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-md-4 mb-3">
+                                                        <div class="button-control no-img">
+                                                            <input data-sidebar-value="Non" data-toggle="check-tab" id="attic_wish_insulation_2" name="attic_wish_insulation" ng-model="vm.prospect.tuco_souhaitamenagercomble.value" ng-value="0" required type="radio">
+                                                            <label for="attic_wish_insulation_2">
+                                                                <span class="caption-name">Non</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-center mb-4">Type de murs de la maison (Exterieur)</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Pierre" id="wall_type_1" name="wall_type" ng-checked="vm.prospect.tuco_typedemursdelamaison.value == 629950000" required type="radio" value="629950000">
+                                            <label for="wall_type_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_mur%20en%20pierre.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_mur%20en%20pierre.svg">
+                                                </span>
+                                                <span class="caption-name">Pierre</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Béton" id="wall_type_2" name="wall_type" ng-checked="vm.prospect.tuco_typedemursdelamaison.value == 629950001" required type="radio" value="629950001">
+                                            <label for="wall_type_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_mur%20en%20b%C3%A9ton.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_mur%20en%20b%C3%A9ton.svg">
+                                                </span>
+                                                <span class="caption-name">Béton</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Brique" id="wall_type_3" name="wall_type" ng-checked="vm.prospect.tuco_typedemursdelamaison.value == 629950002" required type="radio" value="629950002">
+                                            <label for="wall_type_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_mur%20en%20brique.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_mur%20en%20brique.svg">
+                                                </span>
+                                                <span class="caption-name">Brique</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Bois" id="wall_type_4" name="wall_type" ng-checked="vm.prospect.tuco_typedemursdelamaison.value == 629950003" required type="radio" value="629950003">
+                                            <label for="wall_type_4">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_mur%20en%20bois.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_mur%20en%20bois.svg">
+                                                </span>
+                                                <span class="caption-name">Bois</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Murs isolés</h3>
+
+                                <div class="control-mobile-hidden">
+                                    <div class="form-row etude-logement__check-buttons-row mb-5">
+                                        <div class="col-6 col-md-4 mb-3">
+                                            <div class="button-control no-img">
+                                                <input class="control-duplicate" data-sidebar-value="Oui" id="isolated_1" name="isolated_walls" ng-checked="vm.prospect.tuco_mursisols.value == 629950000" required type="radio" value="629950000">
+                                                <label for="isolated_1">
+                                                    <span class="caption-name">Oui</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 mb-3">
+                                            <div class="button-control no-img">
+                                                <input class="control-duplicate" data-sidebar-value="Non" id="isolated_2" name="isolated_walls" ng-checked="vm.prospect.tuco_mursisols.value == 629950001" required type="radio" value="629950001">
+                                                <label for="isolated_2">
+                                                    <span class="caption-name">À rénover</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 mb-3">
+                                            <div class="button-control no-img">
+                                                <input class="control-duplicate" data-sidebar-value="Je ne sais pas" id="isolated_3" name="isolated_walls" ng-checked="vm.prospect.tuco_mursisols.value == 629950002" required type="radio" value="629950002">
+                                                <label for="isolated_3">
+                                                    <span class="caption-name">Je ne sais pas</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-only-mobile">
+                                    <div class="etude-logement__fieldsets mb-5">
+                                        <div class="select-input-wrapper">
+                                            <select class="form-control validate[required] control-duplicate" convert-to-number name="isolated_walls" ng-model="vm.prospect.tuco_mursisols.value" required>
+                                                <option value="" data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+                                                <option value="629950000">Oui</option>
+                                                <option value="629950001">Non</option>
+                                                <option value="629950002">Je ne sais pas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-center mb-4">Type de vitrage</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Simple" id="glazing_type_1" name="glazing_type" ng-checked="vm.prospect.tuco_typedevitrage.value == 629950000" required type="radio" value="629950000">
+                                            <label for="glazing_type_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_simple%20vitrage.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_simple%20vitrage.svg">
+                                                </span>
+                                                <span class="caption-name">Simple</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Double" id="glazing_type_2" name="glazing_type" ng-checked="vm.prospect.tuco_typedevitrage.value == 629950001" required type="radio" value="629950001">
+                                            <label for="glazing_type_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_double%20vitrage.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_double%20vitrage.svg">
+                                                </span>
+                                                <span class="caption-name">Double</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Triple" id="glazing_type_3" name="glazing_type" ng-checked="vm.prospect.tuco_typedevitrage.value == 629950000" required type="radio" value="629950002">
+                                            <label for="glazing_type_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_vitrage%20renforc%C3%A9.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_vitrage%20renforc%C3%A9.svg">
+                                                </span>
+                                                <span class="caption-name">Triple</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Type de ventilation</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Naturelle" id="ventilation_type_1" name="ventilation_type" ng-checked="vm.prospect.tuco_typedeventilation.value == 629950000" required type="radio" value="629950000">
+                                            <label for="ventilation_type_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_ventilation%20naturelle.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_ventilation%20naturelle.svg">
+                                                </span>
+                                                <span class="caption-name">Naturelle</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Simple flux" id="ventilation_type_2" name="ventilation_type" ng-checked="vm.prospect.tuco_typedeventilation.value == 629950001" required type="radio" value="629950001">
+
+
+                                            <label for="ventilation_type_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_ventilation%20simple%20flux.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_ventilation%20simple%20flux.svg">
+                                                </span>
+                                                <span class="caption-name">Simple flux</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Double flux" id="ventilation_type_3" name="ventilation_type" ng-checked="vm.prospect.tuco_typedeventilation.value == 629950002" required type="radio" value="629950002">
+                                            <label for="ventilation_type_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="https://oree-prod.powerappsportals.com/icones-normal_ventilation%20double%20flux.svg">
+                                                    <img alt="" class="selected-img" src="https://oree-prod.powerappsportals.com/icones-selectionnee_ventilation%20double%20flux.svg">
+                                                </span>
+                                                <span class="caption-name">Double flux</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h3 class="text-center mb-4">Jardin</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Oui" data-target="#etude_logement_jardin_tab" data-toggle="check-tab" id="jardin_1" name="jardin" ng-checked="vm.prospect.tuco_logementavecjardin.value == 1" ng-model="vm.prospect.tuco_logementavecjardin.value" required type="radio" value="1">
+                                            <label for="jardin_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_jardin.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_jardin.svg">
+                                                </span>
+                                                <span class="caption-name">Oui</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Non" data-target="#etude_logement_jardin_content" data-toggle="check-hide-tabs" id="jardin_2" name="jardin" ng-checked="vm.prospect.tuco_logementavecjardin.value == 0" ng-model="vm.prospect.tuco_logementavecjardin.value" required type="radio" value="0">
+
+                                            <label for="jardin_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_carr%C3%A9-rectangulaire.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_carr%C3%A9-rectangulaire.svg">
+                                                </span>
+                                                <span class="caption-name">Non</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="" id="etude_logement_jardin_content" ng-if="vm.prospect.tuco_logementavecjardin.value == 1">
+                                    <div class="" id="etude_logement_jardin_tab" role="tabpanel">
+                                        <h3 class="text-center mb-4">Surface du jardin (m²)</h3>
+
+                                        <div class="etude-logement__fieldsets mb-5">
+                                            <div class="text-input-wrapper">
+                                                <input class="form-control text-center num-input only-digits" data-sidebar-postfix=" m²" inputmode="decimal" max="10000" min="0" name="surface_jardin" ng-model="vm.prospect.tuco_surfacedujardin" pattern="[0-9]*" required type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-center mb-4">Type de sous-sol</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Cave" id="basement_type_1" name="basement_type" ng-checked="vm.prospect.tuco_typedesoussol.value == 629950000" ng-model="vm.prospect.tuco_typedesoussol.value" required type="radio" value="629950000">
+                                            <label for="basement_type_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icone_isolation-cave.svg">
+                                                    <img alt="" class="selected-img" src="/icone-selection_isolation-cave.svg">
+                                                </span>
+                                                <span class="caption-name">Cave ou Sous-sol</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Garage" id="basement_type_2" name="basement_type" ng-checked="vm.prospect.tuco_typedesoussol.value == 629950004" ng-model="vm.prospect.tuco_typedesoussol.value" required type="radio" value="629950004">
+                                            <label for="basement_type_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icone_garage-sous-sol.svg">
+                                                    <img alt="" class="selected-img" src="/icone-selection_garage-sous-sol.svg">
+                                                </span>
+                                                <span class="caption-name">Garage</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Vide sanitaire" id="basement_type_3" name="basement_type" ng-checked="vm.prospect.tuco_typedesoussol.value == 629950002" ng-model="vm.prospect.tuco_typedesoussol.value" required type="radio" value="629950002">
+                                            <label for="basement_type_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icone_isolation-vide-sanitaire.svg">
+                                                    <img alt="" class="selected-img" src="/icone-selection_isolation-vide-sanitaire.svg">
+                                                </span>
+                                                <span class="caption-name">Vide sanitaire</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Terre-plein" id="basement_type_4" name="basement_type" ng-checked="vm.prospect.tuco_typedesoussol.value == 629950001" ng-model="vm.prospect.tuco_typedesoussol.value" required type="radio" value="629950001">
+                                            <label for="basement_type_4">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_terre-plein.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_terre-plein.svg">
+                                                </span>
+                                                <span class="caption-name">Terre-plein</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-if="vm.prospect.tuco_typedesoussol.value == 629950002">
+                                    <div class="">
+                                        <h3 class="text-center mb-4">Votre vide sanitaire est-il isolé ?</h3>
+
+                                        <div>
+                                            <div class="form-row etude-logement__check-buttons-row mb-5">
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Oui" id="videsanitaireisole_1" name="videsanitaireisole" ng-model="vm.prospect.tuco_videsanitaireisole.value" ng-value="1" required type="radio">
+                                                        <label for="videsanitaireisole_1">
+                                                            <span class="caption-name">Oui</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Non" id="videsanitaireisole_2" name="videsanitaireisole" ng-model="vm.prospect.tuco_videsanitaireisole.value" ng-value="0" required type="radio">
+                                                        <label for="videsanitaireisole_2">
+                                                            <span class="caption-name">Non</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="" ng-if="vm.prospect.tuco_videsanitaireisole.value == 0">
+                                        <h3 class="text-center mb-4">Votre vide sanitaire est-il accessible<br>
+                                            avec au moins une hauteur de 60cm?</h3>
+                                        <div>
+                                            <div class="form-row etude-logement__check-buttons-row mb-5">
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Oui" id="videsanitaireaccessible_1" name="videsanitaireaccessible" ng-model="vm.prospect.tuco_videsanitaireaccessible.value" ng-value="1" required type="radio">
+
+                                                        <label for="videsanitaireaccessible_1">
+                                                            <span class="caption-name">Oui</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Non" id="videsanitaireaccessible_2" name="videsanitaireaccessible" ng-model="vm.prospect.tuco_videsanitaireaccessible.value" ng-value="0" required type="radio">
+                                                        <label for="videsanitaireaccessible_2">
+                                                            <span class="caption-name">Non</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                        <h3 class="text-center mb-4" ng-if="vm.prospect.tuco_typedesoussol.value == 629950000">Cette pièce est-elle isolée ?</h3>
+
+                                            <div class="form-row etude-logement__check-buttons-row mb-5" ng-if="vm.prospect.tuco_typedesoussol.value == 629950000">
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Oui" id="cavesous_sol_isole_1" name="cavesous_sol_isole" ng-model="vm.prospect.tuco_cavesous_sol_isole.value" ng-value="1" required type="radio">
+                                                        <label for="cavesous_sol_isole_1">
+                                                            <span class="caption-name">Oui</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Non" id="cavesous_sol_isole_2" name="cavesous_sol_isole" ng-model="vm.prospect.tuco_cavesous_sol_isole.value" ng-value="0" required type="radio">
+                                                        <label for="cavesous_sol_isole_2">
+                                                            <span class="caption-name">Non</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                <div ng-if="vm.prospect.tuco_typedesoussol.value != 629950004">
+
+                                <h3 class="text-center mb-4">Avez-vous un garage ?</h3>
+
+                                <div class="form-row etude-logement__check-buttons-row mb-5">
+                                    <div class="col-6 col-md-4 mb-3">
+                                        <div class="button-control no-img">
+                                            <input class="control-duplicate" data-sidebar-value="Oui" data-toggle="check-tab" id="garageattenantalamaison_1" name="garageattenantalamaison" ng-model="vm.prospect.tuco_garageattenantalamaison.value" ng-value="1" required type="radio">
+                                            <label for="garageattenantalamaison_1">
+                                                <span class="caption-name">Oui</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-md-4 mb-3">
+                                        <div class="button-control no-img">
+                                            <input class="control-duplicate" data-sidebar-value="Non" data-toggle="check-hide-tabs" id="garageattenantalamaison_2" name="garageattenantalamaison" ng-model="vm.prospect.tuco_garageattenantalamaison.value" ng-value="0" required type="radio">
+
+                                            <label for="garageattenantalamaison_2">
+                                                <span class="caption-name">Non</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div ng-if="vm.prospect.tuco_garageattenantalamaison.value == 1 && vm.prospect.tuco_typedesoussol.value != 629950004">
+                                    <h3 class="text-center mb-4">Sélectionner la configuration de votre garage</h3>
+                                    <div class="form-row justify-content-center mb-5">
+                                        <div class="button-control__wrapper mb-2">
+                                            <div class="button-control">
+                                                <input data-sidebar-value="Garage intérieur" data-toggle="check-hide-tabs" id="configurationgarage_1" name="configurationgarage" ng-model="vm.prospect.tuco_configurationgarage.value" ng-value="629950001" required type="radio">
+
+                                                <label for="configurationgarage_1">
+                                                    <span class="img-wrapper">
+                                                        <img alt="" class="normal-img" src="/icone_garage-interieur.svg">
+                                                        <img alt="" class="selected-img" src="/icone-selection_garage-interieur.svg">
+                                                    </span>
+                                                    <span class="caption-name">Garage intérieur</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="button-control__wrapper mb-2">
+                                            <div class="button-control">
+                                                <input data-sidebar-value="Garage accolé" data-toggle="check-tab" id="configurationgarage_2" name="configurationgarage" ng-model="vm.prospect.tuco_configurationgarage.value" ng-value="629950000" required type="radio">
+                                                <label for="configurationgarage_2">
+                                                    <span class="img-wrapper">
+                                                        <img alt="" class="normal-img" src="/icone_garage-accole.svg">
+                                                        <img alt="" class="selected-img" src="/icone-selection_garage-accole.svg">
+                                                    </span>
+                                                    <span class="caption-name">Garage accolé</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="button-control__wrapper mb-2">
+                                            <div class="button-control">
+                                                <input data-sidebar-value="Garage indépendant" data-toggle="check-tab" id="configurationgarage_3" name="configurationgarage" ng-model="vm.prospect.tuco_configurationgarage.value" ng-value="629950002" required type="radio">
+                                                <label for="configurationgarage_3">
+                                                    <span class="img-wrapper">
+                                                        <img alt="" class="normal-img" src="/icone_garage-separe.svg">
+                                                        <img alt="" class="selected-img" src="/icone-selection_garage-separe.svg">
+                                                    </span>
+                                                    <span class="caption-name">Garage indépendant</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="" id="garage_isole_tab_content" ng-if="vm.prospect.tuco_configurationgarage.value == 629950000 || vm.prospect.tuco_configurationgarage.value == 629950001">
+                                        <h3 class="text-center mb-4">Garage isolé</h3>
+
+                                        <div class="control-mobile-hidden">
+                                            <div class="form-row etude-logement__check-buttons-row mb-5">
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Oui" id="garage_insulation_1" name="garage_insulation" ng-checked="vm.prospect.tuco_garageisole.value == 629950000" ng-model="vm.prospect.tuco_garageisole.value" ng-value="629950000" required type="radio">
+
+                                                        <label for="garage_insulation_1">
+                                                            <span class="caption-name">Oui</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Non" id="garage_insulation_2" name="garage_insulation" ng-checked="vm.prospect.tuco_garageisole.value == 629950001" ng-model="vm.prospect.tuco_garageisole.value" ng-value="629950001" required type="radio">
+                                                        <label for="garage_insulation_2">
+                                                            <span class="caption-name">Non</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 col-md-4 mb-3">
+                                                    <div class="button-control no-img">
+                                                        <input class="control-duplicate" data-sidebar-value="Je ne sais pas" id="garage_insulation_3" name="garage_insulation" ng-checked="vm.prospect.tuco_garageisole.value == 629950002" ng-model="vm.prospect.tuco_garageisole.value" ng-value="629950002" required type="radio">
+                                                        <label for="garage_insulation_3">
+                                                            <span class="caption-name">Je ne sais pas</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-only-mobile">
+                                            <div class="etude-logement__fieldsets mb-5">
+                                                <div class="select-input-wrapper">
+                                                    <select class="form-control validate[required] control-duplicate" convert-to-number name="garage_insulation" ng-model="vm.prospect.tuco_garageisole.value" required>
+                                                        <option value="" data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+                                                        <option value="629950000">Oui</option>
+                                                        <option value="629950001">Non</option>
+                                                        <option value="629950002">Je ne sais pas</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+
+
+
+
+                                <h3 class="text-center mb-4">Type d'installation électrique</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Monophasé" id="electrical_installation_type_1" name="electrical_installation_type" ng-checked="vm.prospect.tuco_typedinstallationelectrique.value == 629950000" required type="radio" value="629950000">
+
+                                            <label for="electrical_installation_type_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_monophase.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_monophase.svg">
+                                                </span>
+                                                <span class="caption-name">Monophasé</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Triphasé" id="electrical_installation_type_2" name="electrical_installation_type" ng-checked="vm.prospect.tuco_typedinstallationelectrique.value == 629950001" required type="radio" value="629950001">
+                                            <label for="electrical_installation_type_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_triphase.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_triphase.svg">
+                                                </span>
+                                                <span class="caption-name">Triphasé</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <h2 class="text-center font-weight-medium mb-3 text-success">Sensibilité à l'environnement
+                                </h2>
+
+                                <h3 class="text-center mb-4">Êtes-vous sensible à la préservation de notre planète ?</h3>
+
+                                <div class="form-row justify-content-center mb-5">
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Pas sensible" id="level_of_sensitivity_1" name="level_of_sensitivity" ng-checked="vm.prospect.tuco_niveaudesensibilitenvironnementale.value == 629950000" required type="radio" value="629950000">
+                                            <label for="level_of_sensitivity_1">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_environnement-pas-sensible.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_environnement-pas-sensible.svg">
+                                                </span>
+                                                <span class="caption-name">Pas sensible</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Peu sensible" id="level_of_sensitivity_2" name="level_of_sensitivity" ng-checked="vm.prospect.tuco_niveaudesensibilitenvironnementale.value == 629950001" required type="radio" value="629950001">
+                                            <label for="level_of_sensitivity_2">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_environnement-peu-sensible%20.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_environnement-peu-sensible%20.svg">
+                                                </span>
+                                                <span class="caption-name">Peu sensible</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Sensible" id="level_of_sensitivity_3" name="level_of_sensitivity" ng-checked="vm.prospect.tuco_niveaudesensibilitenvironnementale.value == 629950002" required type="radio" value="629950002">
+
+                                            <label for="level_of_sensitivity_3">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_environnement-sensible.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_environnement-sensible.svg">
+                                                </span>
+                                                <span class="caption-name">Sensible</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Très sensible" id="level_of_sensitivity_4" name="level_of_sensitivity" ng-checked="vm.prospect.tuco_niveaudesensibilitenvironnementale.value == 629950003" required type="radio" value="629950003">
+                                            <label for="level_of_sensitivity_4">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_environnement-tres-sensible.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_environnement-tres-sensible.svg">
+                                                </span>
+                                                <span class="caption-name">Très sensible</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-control__wrapper mb-2">
+                                        <div class="button-control">
+                                            <input data-sidebar-value="Extrêmement sensible" id="level_of_sensitivity_5" name="level_of_sensitivity" ng-checked="vm.prospect.tuco_niveaudesensibilitenvironnementale.value == 629950004" required type="radio" value="629950004">
+                                            <label for="level_of_sensitivity_5">
+                                                <span class="img-wrapper">
+                                                    <img alt="" class="normal-img" src="/icones-normal_environnement-extremement-sensible.svg">
+                                                    <img alt="" class="selected-img" src="/icones-selectionnee_environnement-extremement-sensible.svg">
+                                                </span>
+                                                <span class="caption-name">Extrêmement
+                                                    <br>sensible</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end no-gutters pl-3 pr-3">
+                                    <button class="btn" title="Potentiel solaire" type="submit">Potentiel solaire</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div aria-hidden="true" class="modal fade" data-backdrop="static" data-keyboard="false" id="loading-modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="h3 modal-title">Information</div>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center text-muted info-msg">
+                            Merci de patientier pendant le
+                            <br>
+                            chargement des informations précédemment sauvegardées...
+                        </p>
+                    </div>
+                    <div class="modal-illustration-block">
+                        <div class="animated-sun" id="sun-block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div aria-hidden="true" class="modal fade" id="incident_modal" role="dialog" tabindex="-1"><div class="modal-dialog modal-dialog-centered vos-consommations__popup ecs-popup" role="document">
+    <form class="modal-content form-validate" id="incident_form">
+        <div class="vos-consommations__popup-icon"><img alt="" src="/electricite-white-icon.svg"></div>
+        <div class="modal-header">
+            <div class="h1 modal-title">Aidez-nous à améliorer Orée</div>
+            <button aria-label="Fermer" class="btn close" data-dismiss="modal" type="button"></button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12 col-md-7 mb-3">
+                <h6 class="title">Type de la demande</h6>
+                <div class="select-input-wrapper">
+                    <select class="form-control validate[required] control-duplicate" name="incidentType" required data-user="c70a745c-69d3-eb11-bacc-000d3aae8ffc">
+                        <option value="" data-display="<span class='placeholder'>Сhoisir</span>" selected hidden disabled>Сhoisir</option>
+                        <option value="629950002">Rapporter un bug</option>
+                        <option value="629950003">Proposer une amélioration</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-9  mb-3">
+                <h6 class="title">Titre de l'incident</h6>
+                <div class="text-input-wrapper">
+                    <input type="text" class="form-control" name="incidentTitle" required/>
+                </div>
+            </div>
+
+            <div class="bug-details">
+                <div class="col-12  mb-3">
+                    <h6 class="title">Étapes pour reproduire le bug</h6>
+                    <div class="text-input-wrapper">
+                        <textarea class="form-control" name="bugDetails" required maxlength="2000"></textarea>
+                    </div>
+                </div>
+                <div class="col-12  mb-3">
+                    <h6 class="title">Résultat attendu et résultat obtenu</h6>
+                    <div class="text-input-wrapper">
+                        <textarea class="form-control" name="exceptedResults" required maxlength="2000"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12  mb-3" id="description">
+                <h6 class="title">Notes / commentaires</h6>
+                <div class="text-input-wrapper">
+                    <textarea class="form-control" name="description" required maxlength="2000"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <h2>Captures d'écrans</h2>
+
+                <div class="upl-docs-module">
+
+                    <div class="upl-docs-module__item">
+                        <button class="btn btn-purple btn-bordered upl-docs-module__item-toggle" type="button">Captures d'écrans</button>
+
+                        <div class="collapse upl-docs-module__item-content">
+                            <div class="inner-content">
+                                <div class="mb-4">
+
+                                    <input accept="image/*" capture="camera" class="d-none no-validate" hidden name="captures.photoFiles[0].complexRawBase64" type="hidden"/>
+                                    <input accept="image/*" capture="camera" class="d-none no-validate" hidden name="captures.photoFiles[1].complexRawBase64" type="hidden"/>
+                                    <input accept="image/*" capture="camera" class="d-none no-validate" hidden name="captures.photoFiles[2].complexRawBase64" type="hidden"/>
+
+                                    <div class="form-row">
+                                        <div class="col-6 col-md-4 mb-1 order-1 d-none">
+                                            <div class="upl-docs-module__loaded-item" id="capture_1">
+                                                <button class="tech-control-button delete-button" data-toggle="photo-upload-delete" title="Delete" type="button">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                                <div class="img-wrapper"><img alt="" src="/doc-demo.jpg"></div>
+                                                <div class="caption-block">
+                                                    <span class="file-name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 mb-1 order-1 d-none">
+                                            <div class="upl-docs-module__loaded-item" id="capture_2">
+                                                <button class="tech-control-button delete-button" data-toggle="photo-upload-delete" title="Delete" type="button">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                                <div class="img-wrapper"><img alt="" src="/doc-demo.jpg"></div>
+                                                <div class="caption-block">
+                                                    <span class="file-name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 mb-1 order-1 d-none">
+                                            <div class="upl-docs-module__loaded-item" id="capture_3">
+                                                <button class="tech-control-button delete-button" data-toggle="photo-upload-delete" title="Delete" type="button">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                                <div class="img-wrapper"><img alt="" src="/doc-demo.jpg"></div>
+                                                <div class="caption-block">
+                                                    <span class="file-name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 order-2 mb-1">
+                                            <div class="upl-docs-module__upload-file">
+                                                <input accept="image/*" capture="camera" data-duplicate-name="captures.photoFiles[0].complexRawBase64" data-show-element="#capture_1" id="upload-captures-1" name="captures.photoFiles[0].file" type="file"/>
+                                                <label for="upload-captures-1">
+                                                    <span class="img-wrapper"><img alt="" src="/upload-camera.svg"></span>
+                                                    <span class="caption">Prendre une photo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 order-2 mb-1 d-none">
+                                            <div class="upl-docs-module__upload-file">
+                                                <input accept="image/*" capture="camera" data-duplicate-name="captures.photoFiles[1].complexRawBase64" data-show-element="#capture_2" id="upload-captures-2" name="captures.photoFiles[1].file" type="file"/>
+                                                <label for="upload-captures-2">
+                                                    <span class="img-wrapper"><img alt="" src="/upload-camera.svg"></span>
+                                                    <span class="caption">Prendre une photo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4 order-2 mb-1 d-none">
+                                            <div class="upl-docs-module__upload-file">
+                                                <input accept="image/*" capture="camera" data-duplicate-name="captures.photoFiles[2].complexRawBase64" data-show-element="#capture_3" id="upload-captures-3" name="captures.photoFiles[2].file" type="file"/>
+                                                <label for="upload-captures-3">
+                                                    <span class="img-wrapper"><img alt="" src="/upload-camera.svg"></span>
+                                                    <span class="caption">Prendre une photo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="upl-docs-module__bottom-row">
+                                    <button class="btn btn-sm ml-auto disabled" data-toggle="photo-upload-submit" type="button">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12  mb-3 text-center">
+                <button class="btn" type="submit" title="Potentiel solaire">Envoyer</button>
+            </div>
+        </div>
+    </form>
+</div></div>
+
+        <script src="/jquery-3.3.1.min.js"></script>
+        <script src="/bootstrap.bundle.min.js"></script>
+        <script src="/plugins.min.js"></script>
+        <script src="/lodash.js"></script>
+        <script src="/main.min.js"></script>
+
+        <script>
+        (function () {
+            'use strict';
+
+            angular.module('serviceAPI', [])
+                .factory('Api', Api)
+            /** @ngInject */
+
+            function Api($rootScope) {
+                var api = {
+                    baseUrl: 'https://tucoenergieapi-prod.azurewebsites.net/api/prospect/'
+                };
+                return api;
+            }
+
+        })();
+        var formObj = {};
+        //logout
+        $('#logout_link').click(function () {
+            localStorage.removeItem('profileImg');
+            sessionStorage.clear();
+            return true;
+        });
+        $("#loading-modal").modal('show');
+
+        var retrieve = "false"
+        if (retrieve == "true") {
+            //  $("#loading-modal").modal('show');
+        }
+        //Load profile
+        function LoadProfilePicture() {
+            $.ajax("https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc")
+                .done(function (data) {
+                    if (data.entityImage != null) {
+                        let profileImg = "data:image/png;base64," + data.entityImage;
+
+                        localStorage.setItem('profileImg', profileImg);
+                        $('#header-menu_avatar_img_block img').attr('src', profileImg);
+                    }
+                })
+                .fail(function (xhr) {
+                    console.error(xhr);
+                });
+        }
+
+        if (localStorage.getItem('profileImg') == null) {
+            LoadProfilePicture();
+        } else {
+            let profileImg = localStorage.getItem('profileImg');
+            $('#header-menu_avatar_img_block img').attr('src', profileImg);
+        }
+
+
+        function CheckCurrentEtude() {
+            let prospectId = sessionStorage.getItem("prospectId");
+            if (prospectId == null) {
+                window.location.href = "/coordonnees-du-beneficiaire";
+            } else if (GetUrlParams(window.location.search, "prospectId") != prospectId) {
+                window.location.search = "?prospectId={0}".format(prospectId);
+            }
+        }
+
+        CheckCurrentEtude();
+
+        function SaveEtudeLogement() {
+            let prospectId = sessionStorage.getItem("prospectId");
+        }
+
+        function TriggerAll() {
+            $('#etude_logement_form input[type="radio"]:checked').trigger("change");
+            $('#etude_logement_form select option:selected').trigger("change")
+            $('#etude_logement_form input:not([type="checkbox"], [type="radio"])').trigger("change");
+        }
+
+        function InitNiceSelect() {
+            $('select').niceSelect('update');
+            TriggerAll();
+
+            $('#solaire_angle_range').ionRangeSlider({
+                force_edges: false,
+                grid_margin: false,
+                hide_min_max: false,
+                hide_from_to: false,
+                from_min: 20,
+                step: 5,
+            });
+
+            setTimeout(() => {
+                $("#loading-modal").modal('hide');
+            }, 9000);
+            $('html, body').animate({
+                scrollTop: 0
+            }, 400);
+
+            formObj = BuildFormObject($('#etude_logement_form'));
+        }
+
+        /*$(document).ready(() => {
+            if (retrieve == "true") {
+                onInit = 1;
+                TriggerAll();
+            }
+        });
+
+        $(window).on("load", function () {
+            if (retrieve == "true") {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 400);
+
+                formObj = BuildFormObject($('#etude_logement_form'));
+            }
+        })
+*/
+        //Malik fix
+
+        $(document).on('change', '#solaire_angle_range', function (e) {
+            var r = $(this).val();
+            if (r < 10) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_0%C2%B0.svg')
+            }
+
+            if (r >= 10 && r < 20) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_10%C2%B0.svg')
+            }
+
+            if (r >= 20 && r < 30) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_20%C2%B0.svg')
+            }
+
+            if (r >= 30 && r < 40) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_30%C2%B0.svg')
+            }
+
+            if (r >= 40 && r < 50) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_40%C2%B0.svg')
+            }
+
+            if (r >= 50 && r < 60) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_50%C2%B0.svg')
+            }
+
+            if (r >= 60 && r < 65) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_60%C2%B0.svg')
+            }
+
+            if (r >= 65 && r < 70) {
+                $('#solaire_angle_img').find('img').attr('src', '/icones-normal_70%C2%B0.svg')
+            }
+        });
+
+        $(document).on('change', '#etude_logement_year_of_contruction', function () {
+            var thisCurrentVal = $(this).find('option:selected').text();
+            var thisCurrentValNum = parseInt($(this).find('option:selected').text());
+
+            if (thisCurrentVal != '') {
+
+                if (thisCurrentValNum >= 1975 && thisCurrentValNum <= 1980) {
+                    $('#etude_logement_coefficient_isolation').val('629950001').change().niceSelect('update');
+                }
+
+                if (thisCurrentValNum >= 1981 && thisCurrentValNum < 2000) {
+                    $('#etude_logement_coefficient_isolation').val('629950002').change().niceSelect('update');
+                }
+
+                if (thisCurrentValNum >= 2000 && thisCurrentValNum <= 2005) {
+                    $('#etude_logement_coefficient_isolation').val('629950003').change().niceSelect('update');
+                }
+
+                if (thisCurrentValNum >= 2006) {
+                    $('#etude_logement_coefficient_isolation').val('629950004').change().niceSelect('update');
+                }
+
+                /*if (thisCurrentVal == 'Avant 1975') { TODO: reactivate when find a solution to not trigger this function during load
+                    $('#etude_logement_coefficient_isolation').val('').change().niceSelect('update');
+                }*/
+            }
+        });
+
+        $(document).on('change', '[name="type_of_roof"]', function () {
+            var thisVal = $(this).val();
+            if (thisVal != 629950003 && !!thisVal) {
+                $('#solaire_angle_range').ionRangeSlider({
+                    force_edges: false,
+                    grid_margin: false,
+                    hide_min_max: false,
+                    hide_from_to: false,
+                    from_min: 20,
+                    step: 5,
+                });
+            }
+        });
+
+        $(document).on('submit', '#etude_logement_form', function (e) {
+            e.preventDefault();
+
+            if ($(this).valid()) {
+                var dataObj = BuildFormObject(this);
+
+                if (_.isEqual(formObj, dataObj)) {
+                    window.location.assign("/etude-potentiel-solaire/?prospectId={0}".format(sessionStorage
+                        .getItem("prospectId")));
+                    return;
+                }
+
+
+                sessionStorage.setItem('surface_habitable', dataObj.surface_habitable); //cache issue
+                showLoading();
+
+                var prospectId = sessionStorage.getItem("prospectId");
+                $.ajax({
+                    method: "PUT",
+                    contentType: "application/json",
+                    url: "https://tucoenergieapi-prod.azurewebsites.net/api/prospect/{0}/EtudeLogement".format(prospectId),
+                    data: JSON.stringify(dataObj),
+                    dataType: "json"
+                }).done(function (data, textstatus, xhr) {
+                    if (xhr.status == 200) {
+                        hideLoading();
+                        window.location.assign("/etude-potentiel-solaire/?prospectId={0}".format(
+                            sessionStorage.getItem("prospectId")));
+                    }
+                }).fail(function (xhr) {
+                    console.error(xhr);
+                    hideLoading();
+                });
+            }
+
+            return false;
+        });
+
+        function BuildFormObject(form) {
+            var dataObj = $(form).serializeToJSON({
+                associativeArrays: false
+            });
+
+
+            if (dataObj.cover_typeTuile != null) {
+                dataObj.cover_type = dataObj.cover_typeTuile;
+            } else if (dataObj.cover_typeTole != null) {
+                dataObj.cover_type = dataObj.cover_typeTole;
+            }
+
+            return dataObj;
+        }
+
+        $(document).on('change', '#etude_logement_form input[type="radio"]', function () {
+
+            var thisName = $(this).attr('name');
+            var thisSidebarElement = $('[data-control-name="' + thisName + '"]');
+            var thisVal = $(this).val();
+            var thisElem = $(this);
+
+            var thisPostfix = $(this).attr('data-sidebar-postfix') || '';
+            var thisSidebarValue = $(this).attr('data-sidebar-value') || thisVal;
+            thisSidebarValue += thisPostfix;
+
+            var thisHideTarget = $(this).attr('data-hide-target') || '';
+            var isCheckHideTabs = false;
+            var CheckHideTabsTarget;
+
+            $(thisHideTarget).removeClass('active');
+            /*if (thisVal == "Tuile" || thisVal == "Tôle") {
+                $('[data-control-name="cover_typeTuile"]').removeClass('active');
+                $('[data-control-name="cover_typeTole"]').removeClass('active');
+                $("[name='cover_typeTuile']:checked").prop("checked", false)
+                $("[name='cover_typeTole']:checked").prop("checked", false)
+            }*/
+
+            if (thisSidebarValue == "Toit plat") {
+                $("[name='cover_type']:checked").prop("checked", false)
+            }
+
+            if ($(this).is(':checked')) {
+                if ($(thisSidebarElement).length > 0) {
+                    $(thisSidebarElement).addClass('active').parents('.etude-logement__sidebar-part').addClass(
+                        'active');
+                    $(thisSidebarElement).find('.val').html(thisSidebarValue);
+                }
+
+                if (($(this).attr('data-toggle') != 'check-tab' && ($(this).attr('data-toggle') !=
+                        'check-tabs-control' || !$(this).is('[data-show-target]'))) || $(this).is(
+                        '[data-tab-no-scroll]')) {
+                    var thisParents = $(this).parents(
+                        '.tab-content, .control-mobile-hidden, .compass-module, .etude-logement__fieldsets, .form-row'
+                    );
+
+                    if ($(this).attr('data-toggle') == 'check-hide-tabs') {
+                        isCheckHideTabs = true;
+                        var checkHideTabsTarget = $(this).attr('data-target');
+                    }
+
+                    if ($(thisParents).nextAll('.tab-content, h3, .h3').length > 0) {
+                        var nextElement = $(thisParents).nextAll('.tab-content, h3, .h3').not($(thisHideTarget)
+                            .parent());
+                        var nextElementOffset = 0;
+                        $(nextElement).each(function () {
+                            if ($(this).hasClass('tab-content')) {
+
+                                if ($(this).children('.tab-pane.active').length > 0) {
+
+                                    if (isCheckHideTabs && $(this).is($(checkHideTabsTarget))) {
+                                        return false;
+                                    } else {
+                                        nextElement = $(this).children('.tab-pane.active');
+                                    }
+
+                                    return false;
+                                } else {
+                                    return false;
+                                }
+                            } else {
+                                nextElement = $(this);
+                                return false;
+                            }
+                        });
+                        setTimeout(function () {
+                            nextElementOffset = $(nextElement).offset().top - 120;
+                            //console.log(nextElement);
+                            //console.log(nextElementOffset);
+                        }, 0);
+                    } else {
+                        if ($(thisParents).offset().top > 0) {
+                            nextElementOffset = $(thisParents).offset().top + $(thisParents).outerHeight() - 60;
+                        } else {
+                            nextElementOffset = $('html, body').scrollTop();
+                        }
+                    }
+
+                    if (!$(this).is('[data-no-next-scroll]')) {
+                        setTimeout(function () {
+                            $('html, body').animate({
+                                scrollTop: nextElementOffset
+                            }, 400);
+                        }, 50);
+                    }
+                }
+                if (!$('[name="' + thisName + '"]').is(':checked')) {
+                    if ($(thisSidebarElement).length > 0) {
+                        $(thisSidebarElement).removeClass('active');
+                    }
+                }
+            }
+        });
+
+        $(document).on('change', '#etude_logement_form input[type="checkbox"]', function () {
+            var thisName = $(this).attr('name');
+            var thisSidebarElement = $('[data-control-name="' + thisName + '"]');
+
+            var thisSidebarCompletedValue = '';
+            var valPostfixContent = $(thisSidebarElement).attr('data-val-postfix-content') || '';
+
+            $('input[type="checkbox"][name="' + thisName + '"]:checked').each(function (i) {
+                var thisVal = $(this).val();
+                var thisPostfix = $(this).attr('data-sidebar-postfix') || '';
+                var thisSidebarValue = $(this).attr('data-sidebar-value') || thisVal;
+                thisSidebarValue += thisPostfix;
+
+                if (i == 0) {
+                    thisSidebarCompletedValue += thisSidebarValue;
+                } else {
+                    thisSidebarCompletedValue += ', ' + thisSidebarValue;
+                }
+            });
+
+            if ($(thisSidebarElement).length > 0) {
+                $(thisSidebarElement).addClass('active').parents('.etude-logement__sidebar-part').addClass(
+                    'active');
+                $(thisSidebarElement).find('.val').html(thisSidebarCompletedValue + valPostfixContent);
+            }
+
+            if (thisSidebarCompletedValue == '') {
+                $(thisSidebarElement).removeClass('active');
+            }
+        });
+
+        $(document).on('change focusout keydown keypress input',
+            '#etude_logement_form input:not([type="checkbox"], [type="radio"])',
+            function () {
+                var thisName = $(this).attr('name');
+                var thisSidebarElement = $('[data-control-name="' + thisName + '"]');
+                var thisVal = $(this).val();
+
+                var thisPostfix = $(this).attr('data-sidebar-postfix') || '';
+                var thisSidebarValue = thisVal + thisPostfix;
+                var valPostfixContent = $(thisSidebarElement).attr('data-val-postfix-content') || '';
+
+                if ($(thisSidebarElement).length > 0) {
+                    if (!$(this).val() == '') {
+                        if ($(thisSidebarElement).length > 0) {
+                            $(thisSidebarElement).addClass('active').parents('.etude-logement__sidebar-part')
+                                .addClass('active');
+                            $(thisSidebarElement).find('.val').html(thisSidebarValue + valPostfixContent);
+                        }
+                    } else {
+                        $(thisSidebarElement).removeClass('active');
+                    }
+                }
+            });
+
+        $(document).on('change', '#etude_logement_form select', function () {
+            var thisName = $(this).attr('name');
+            var thisSidebarElement = $('[data-control-name="' + thisName + '"]');
+            //var thisVal = $(this).val(); old
+            var thisVal = $(this).find('option:selected').text();
+
+
+            var thisPostfix = $(this).attr('data-sidebar-postfix') || '';
+            var thisSidebarValue = thisVal + thisPostfix;
+            var valPostfixContent = $(thisSidebarElement).attr('data-val-postfix-content') || '';
+
+            if ($(thisSidebarElement).length > 0) {
+                $(thisSidebarElement).addClass('active').parents('.etude-logement__sidebar-part').addClass(
+                    'active');
+                $(thisSidebarElement).find('.val').html(thisSidebarValue + valPostfixContent);
+            }
+        });
+
+        $(document).on('click.nice_select', '.nice-select .option:not(.disabled)', function (event) {
+
+            var thisParents = $(this).parents(
+                '.tab-content, .control-mobile-hidden, .etude-logement__fieldsets, .form-row');
+
+            if ($(thisParents).nextAll('.tab-content, h3, .h3').length > 0) {
+                var nextElement = $(thisParents).nextAll('.tab-content, h3, .h3').eq(0);
+                var nextElementOffset = 0;
+                if ($(nextElement).hasClass('tab-content') && $(nextElement).find('.tab-pane.active').length >
+                    0) {
+                    nextElement = $(nextElement).find('.tab-pane.active');
+                }
+                nextElementOffset = $(nextElement).eq(0).offset().top - 120;
+            } else {
+                nextElementOffset = $(thisParents).offset().top + $(thisParents).outerHeight() - 60;
+            }
+            $('html, body').animate({
+                scrollTop: nextElementOffset
+            }, 500);
+
+            $('.etude-logement__sidebar-content').animate({
+                scrollTop: $('.etude-logement__sidebar-content')[0].scrollHeight
+            }, 0);
+        });
+    </script>
+</body>
+
+
+</html>

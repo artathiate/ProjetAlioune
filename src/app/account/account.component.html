@@ -1,0 +1,438 @@
+
+<body>
+
+
+
+	<div id="loading_block" class="loading-block"></div>
+
+	<div class="orientation-block">
+		<div class="orientation-text">Merci de tourner votre téléphone</div>
+	</div>
+
+
+
+
+
+
+
+	<div class="header-menu" id="header_menu">
+		<div class="header-menu__inner-content">
+			<button type="button" title="Close" data-toggle="close-menu"
+				class="header-close-toggle header-menu__close-button"></button>
+
+			<div class="header-menu__user-info">
+				<div class="left-part">
+					<div class="name">Alioune Sall</div>
+					<a id="logout_link" href="/Account/Login/LogOff?returnUrl=%2FSignIn%2F"
+						class="header-menu__sign-out">Déconnexion</a>
+				</div>
+
+				<div id="header-menu_avatar_img_block" class="header-menu__avatar-img"><img
+						src="/avatar-placeholder.svg" alt=""></div>
+			</div>
+
+			<div class="header-menu__nav">
+				<ul>
+					<li class="my-account"><a href="/mon-compte">Mon compte</a></li>
+					<li><a href="/dashboard">Mon tableau de bord</a></li>
+					<li><a href="/mes-rendez-vous">Mes rendez-vous</a></li>
+					<li><a href="/my-projects">Mes études</a></li>
+					<li><a href="/books-de-presentation">Mes book de présentation</a></li>
+					<li><a href="/coordonnees-du-beneficiaire">Démarrer une étude</a></li>
+				</ul>
+			</div>
+
+			<div class="header-menu__logo"><img src="/oree_logo_menu.png" alt=""></div>
+		</div>
+	</div>
+
+	<div class="header-menu__overlay" data-toggle="close-menu" id="header_menu_overlay"></div>
+
+
+
+
+
+	<div class="account-block">
+		<button type="button" data-toggle="open-menu"
+			class="header-menu-toggle account-block__menu-button"><span></span></button>
+
+		<div class="account-block__topbar">
+			<div class="container">
+				<div class="account-block__topbar-row">
+					<h1 class="text-primary">Mon compte</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="account-block__avatar-topbar">
+			<div class="container">
+				<div class="account-block__avatar-block">
+					<div id="avatar_img_block" class="account-block__avatar-img">
+						<img src="/avatar-placeholder.svg" alt="">
+					</div>
+
+					<div class="account-block__load-avatar">
+						<input type="file" id="avatar_file" accept=".jpg, .png,.jpeg, .gif, .bmp, .tif, .tiff|image/*">
+
+						<label for="avatar_file">
+							<span>Modifier la photo</span>
+							<i class="material-icons">edit</i>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="account-block__main-part">
+			<div class="container">
+				<h3 class="text-primary font-weight-medium account-block__title mb-5">Mon compte</h3>
+
+				<div class="row justify-content-between">
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Prénom/Nom</div>
+
+							<div class="account-block__data-val">Alioune Sall</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Email</div>
+
+							<div class="account-block__data-val">contact@habitatconseil80.fr</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Entreprise</div>
+
+							<div class="account-block__data-val">TUCOENERGIE</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Téléphone</div>
+
+							<div class="account-block__data-val" id="user-phone">0646686787</div>
+
+							<button type="button" data-toggle="modal" data-target="#nouveau-numero-modal"
+								class="account-block__edit-button"><i class="material-icons">edit</i></button>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Agence</div>
+
+							<div class="account-block__data-val">Agence HABITAT CONSEIL 80</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Mot de passe</div>
+
+							<div class="account-block__data-val">************</div>
+
+							<button type="button" data-toggle="modal" data-target="#change-password-modal"
+								class="account-block__edit-button"><i class="material-icons">edit</i></button>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-5 mb-5">
+						<div class="account-block__data-item">
+							<div class="account-block__data-label">Rôle</div>
+
+							<div class="account-block__data-val">Manager</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<form class="modal-content form-validate" id="passwordManageForm">
+				<div class="modal-header">
+					<div class="h3 modal-title">Modification du mot de passe</div>
+					<button type="button" class="btn close" data-dismiss="modal" aria-label="Fermer"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<div class="text-input-wrapper with-icon">
+							<i class="material-icons">lock</i>
+
+							<input type="password" id="modal_old_password" name="old_password"
+								class="form-control no-paste" required>
+
+							<label>Ancien mot de passe</label>
+
+							<button type="button" data-toggle="show_hide_password"
+								class="tech-control-button password-view-button active">
+								<i class="material-icons active-ico">visibility_off</i>
+								<i class="material-icons unactive-ico">visibility</i>
+							</button>
+						</div>
+					</div>
+					<div class="mb-3">
+						<div class="text-input-wrapper with-icon">
+							<i class="material-icons">lock</i>
+
+							<input type="password" id="modal_new_password" name="new_password"
+								class="form-control no-paste" required>
+
+							<label>Nouveau mot passe</label>
+
+							<button type="button" data-toggle="show_hide_password"
+								class="tech-control-button password-view-button active">
+								<i class="material-icons active-ico">visibility_off</i>
+								<i class="material-icons unactive-ico">visibility</i>
+							</button>
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<div class="text-input-wrapper with-icon">
+							<i class="material-icons">lock</i>
+
+							<input type="password" name="new_password_2" data-rule-equalTo="#modal_new_password"
+								class="form-control no-paste" required>
+
+							<label>Confirmer mot de passe</label>
+
+							<button type="button" data-toggle="show_hide_password"
+								class="tech-control-button password-view-button active">
+								<i class="material-icons active-ico">visibility_off</i>
+								<i class="material-icons unactive-ico">visibility</i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn centered" id="updateUserPassword" title="Valider">Valider</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="modal fade" id="nouveau-numero-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+			<form class="modal-content">
+				<div class="modal-header">
+					<div class="h3 modal-title">Modification du numéro de téléphone</div>
+					<button type="button" class="btn close" data-dismiss="modal" aria-label="Fermer"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<div class="text-input-wrapper">
+							<input type="tel" name="new_number_profile" id="new_number_profile"
+								class="form-control tel-mask no-paste" required>
+
+							<label>Nouveau numéro de téléphone</label>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="update_userPhone" class="btn centered">Valider</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="h3 modal-title">Une erreur est survenue</div>
+					<button type="button" class="btn close" data-dismiss="modal" aria-label="Fermer"></button>
+				</div>
+				<div class="modal-body">
+					<p class="text-center text-muted error-msg"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn centered" data-dismiss="modal">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/jquery-3.3.1.min.js"></script>
+	<script src="/bootstrap.bundle.min.js"></script>
+	<script src="/plugins.min.js"></script>
+	<script src="/main.min.js"></script>
+
+
+	<script type="text/javascript">
+		//clear session storage
+		sessionStorage.clear();
+		var errorModalInstance = new bootstrap.Modal(document.getElementById('error-modal'), {})
+		//logout
+
+		$('#logout_link').click(function () {
+			localStorage.removeItem('profileImg');
+			return true;
+		});
+
+		//Load profile
+		function LoadProfilePicture() {
+			showLoading();
+			$.ajax("https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc")
+				.done(function (data) {
+					if (data.entityImage != null) {
+						let profileImg = "data:image/png;base64," + data.entityImage;
+
+						localStorage.setItem('profileImg', profileImg);
+						$('#avatar_img_block img').attr('src', profileImg);
+						$('#header-menu_avatar_img_block img').attr('src', profileImg);
+						hideLoading();
+					} else {
+						hideLoading();
+					}
+				})
+				.fail(function (xhr) {
+					console.error(xhr);
+					hideLoading();
+				});
+		}
+
+		if (localStorage.getItem('profileImg') == null) {
+			LoadProfilePicture();
+		} else {
+			let profileImg = localStorage.getItem('profileImg');
+			$('#avatar_img_block img').attr('src', profileImg);
+			$('#header-menu_avatar_img_block img').attr('src', profileImg);
+		}
+
+		//Change Picture
+		$("#avatar_file").on('change', function () {
+			var selectedFile = this.files[0];
+			var selectedFileName = selectedFile.name;
+			var thisElem = $(this);
+
+			selectedFile.convertToBase64(function (base64) {
+				$.ajax({
+						method: "PUT",
+						contentType: "application/json",
+						url: "https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc/UpdateProfilePicture",
+						data: JSON.stringify({
+							id: "c70a745c-69d3-eb11-bacc-000d3aae8ffc",
+							profilePicture: base64
+						})
+					})
+					.done(function (data, textstatus, xhr) {
+						if (xhr.status == 204) {
+							$('#avatar_img_block img').attr('src', base64);
+							$('#header-menu_avatar_img_block img').attr('src', base64);
+							localStorage.setItem('profileImg', base64);
+						}
+					}).
+				fail(function (xhr) {
+					console.error(xhr);
+				});
+			});
+		});
+
+		$("#update_userPhone").on('click', function () {
+			let phone = $("#new_number_profile").val();
+
+			if ($("#new_number_profile").valid()) {
+				showLoading();
+				$.ajax({
+						method: "PUT",
+						contentType: "application/json",
+						url: "https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc/mobilePhone",
+						data: JSON.stringify({
+							id: "c70a745c-69d3-eb11-bacc-000d3aae8ffc",
+							mobilePhone: phone
+						})
+					})
+					.done(function (data, textstatus, xhr) {
+						if (xhr.status == 204) {
+							$('#user-phone').text(phone);
+							$('#nouveau-numero-modal').modal('hide');
+							hideLoading();
+						}
+					}).
+				fail(function (xhr) {
+					console.error(xhr);
+					hideLoading();
+				});
+			}
+
+		});
+
+		$('#nouveau-numero-modal').on('shown.bs.modal', function (e) {
+			let phone = $('#user-phone').text();
+			if (phone != "") {
+				$('#new_number_profile').focus();
+				$("#new_number_profile").val(phone);
+			}
+
+		});
+
+
+		//Update password
+		$("#updateUserPassword").on('click', function () {
+
+			if ($("#passwordManageForm").valid()) {
+				showLoading();
+
+				$.ajax({
+						method: "PUT",
+						contentType: "application/json",
+						url: "https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc/updatePassword",
+						data: JSON.stringify({
+							id: "c70a745c-69d3-eb11-bacc-000d3aae8ffc",
+							oldPassword: $("#modal_old_password").val(),
+							newPassword: $("#modal_new_password").val()
+						})
+					})
+					.done(function (data, textstatus, xhr) {
+						if (xhr.status == 204) {
+							$("#modal_old_password").val(null);
+							$("#modal_new_password").val(null);
+							$('[name="new_password_2"]').val(null);
+							hideLoading();
+							$('#change-password-modal').modal('hide');
+							window.location = "/Account/Login/LogOff?returnUrl=%2FSignIn%2F";
+						}
+					}).
+				fail(function (xhr) {
+					hideLoading();
+					$("#modal_old_password").val(null);
+					$("#modal_new_password").val(null);
+					$('[name="new_password_2"]').val(null);
+					try {
+						if (!!xhr.responseText) {
+							let errorObj = JSON.parse(xhr.responseText);
+							let errors = errorObj.errors;
+							$("#error-modal .error-msg").html(errors);
+						} else {
+							$("#error-modal .error-msg").html(xhr.statusText);
+						}
+
+						errorModalInstance.show()
+						console.error(xhr);
+					} catch (error) {
+						hideLoading();
+						console.error(error);
+						$("#error-modal .error-msg").html(error.statusText);
+						errorModalInstance.show()
+					}
+					console.error(xhr);
+
+				});
+			}
+
+		});
+	</script>
+
+
+</body>

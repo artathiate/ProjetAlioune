@@ -1,0 +1,263 @@
+<body>
+
+
+
+    <div class="loading-block" id="loading_block"></div>
+
+    <div class="orientation-block">
+        <div class="orientation-text">Merci de tourner votre téléphone</div>
+    </div>
+    <div class="header-menu" id="header_menu">
+        <div class="header-menu__inner-content">
+            <button class="header-close-toggle header-menu__close-button" data-toggle="close-menu" title="Close" type="button"></button>
+
+            <div class="header-menu__user-info">
+                <div class="left-part">
+                    <div class="name">Alioune Sall</div>
+                    <a class="header-menu__sign-out" href="/Account/Login/LogOff?returnUrl=%2FSignIn%2F">Déconnexion</a>
+                </div>
+
+                <div class="header-menu__avatar-img" id="header-menu_avatar_img_block"><img alt="" src="/avatar-placeholder.svg"></div>
+            </div>
+
+            <div class="header-menu__nav">
+                <ul>
+                    <li class="my-account">
+                        <a href="/mon-compte">Mon compte</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard">Mon tableau de bord</a>
+                    </li>
+                    <li>
+                        <a href="/mes-rendez-vous">Mes rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="/my-projects">Mes études</a>
+                    </li>
+                    <li>
+                        <a href="/books-de-presentation">Mes book de présentation</a>
+                    </li>
+                    <li>
+                        <a href="/coordonnees-du-beneficiaire">Démarrer une étude</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="header-menu__logo"><img alt="" src="/oree_logo_menu.png"></div>
+        </div>
+    </div>
+
+    <div class="header-menu__overlay" data-toggle="close-menu" id="header_menu_overlay"></div>
+
+    <div class="my-projects">
+        <button class="header-menu-toggle account-block__menu-button" data-toggle="open-menu" type="button">
+            <span></span>
+        </button>
+
+        <div class="my-projects__topbar">
+            <div class="container">
+                <div class="my-projects__topbar-row">
+                    <h1 class="text-primary">Mes incidents</h1>
+
+                    <div class="text-input-wrapper my-projects__search-input">
+                        <input class="form-control" id="projects_input_search" placeholder="Recherche" type="text">
+                        <i class="material-icons">search</i>
+                        <button class="tech-control-button" data-toggle="reset" type="button">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-projects__main-part">
+            <div class="container">
+                <div class="my-projects__table-panel">
+                    <table class="table my-projects__table" id="projects_table">
+                        <thead>
+                            <tr>
+                                <th>Date de l'incident</th>
+                                <th>Numéro de l'incident</th>
+                                <th>Titre</th>
+                                <th>Type d'incident</th>
+                                <th>Statut de l'incident</th>
+                                <th>Voir l'incident</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <input type="hidden" value="9bfc0caf-61c0-ea11-a812-000d3a4aab1f" id="SharePointSiteId">
+
+
+    <script src="/jquery-3.3.1.min.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/plugins.min.js"></script>
+    <script src="/main.min.js"></script>
+
+
+    <script>
+    //clear session storage
+    sessionStorage.clear();
+    SetmomentLocal();
+    //logout
+
+    $('#logout_link').click(function () { localStorage.removeItem('profileImg'); return true; });
+
+    //Load profile
+    function LoadProfilePicture() {
+        showLoading();
+        $.ajax("https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc")
+            .done(function (data) {
+                if (data.entityImage != null) {
+                    let profileImg = "data:image/png;base64," + data.entityImage;
+
+                    localStorage.setItem('profileImg', profileImg);
+                    $('#header-menu_avatar_img_block img').attr('src', profileImg);
+                    hideLoading();
+                }
+                else {
+                    hideLoading();
+                }
+            })
+            .fail(function (xhr) {
+                console.error(xhr);
+                hideLoading();
+            });
+    }
+
+    if (localStorage.getItem('profileImg') == null) {
+        LoadProfilePicture();
+    }
+    else {
+        let profileImg = localStorage.getItem('profileImg');
+        $('#header-menu_avatar_img_block img').attr('src', profileImg);
+    }
+
+
+    $(document).ready(function () {
+        $.fn.dataTable.moment('DD/MMMM/YYYY');
+
+        var projectsTable = $('#projects_table').DataTable({
+            language: {
+                processing: "Traitement en cours...",
+                search: "Rechercher&nbsp;:",
+                lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+                info: "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+                infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "Aucune étude trouvée",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "Premier",
+                    previous: "<i class='arrow-ico'></i><span class='caption'>Précédent</span>",
+                    next: "<i class='arrow-ico'></i><span class='caption'>Suivant</span>",
+                    last: "Dernier"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            },
+            paging: 20,
+            searching: true,
+            info: false,
+            columnDefs: [
+                {
+                    //type: 'datetime-moment',
+                    //targets: -1,
+                    "orderFixed": [ 0, 'asc' ]
+                },
+                {
+                    orderable: false,
+                    targets: [2]
+                },
+                {
+                    width: '131px',
+                    targets: 5
+                }
+            ]
+        });
+
+        $('#projects_input_search').on('change keypress keyup blur', function () {
+            projectsTable.search(this.value).draw();
+        });
+
+    });
+
+
+    function SetmomentLocal() {
+        moment.locale('fr', {
+            months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
+                '_'),
+            monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
+            monthsParseExact: true,
+            weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
+            weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
+            weekdaysMin: 'Di_Lu_Ma_Me_Je_Ve_Sa'.split('_'),
+            weekdaysParseExact: true,
+            longDateFormat: {
+                LT: 'HH:mm',
+                LTS: 'HH:mm:ss',
+                L: 'DD/MM/YYYY',
+                LL: 'D MMMM YYYY',
+                LLL: 'D MMMM YYYY HH:mm',
+                LLLL: 'dddd D MMMM YYYY HH:mm'
+            },
+            calendar: {
+                sameDay: '[Aujourd’hui à] LT',
+                nextDay: '[Demain à] LT',
+                nextWeek: 'dddd [à] LT',
+                lastDay: '[Hier à] LT',
+                lastWeek: 'dddd [dernier à] LT',
+                sameElse: 'L'
+            },
+            relativeTime: {
+                future: 'dans %s',
+                past: 'il y a %s',
+                s: 'quelques secondes',
+                m: 'une minute',
+                mm: '%d minutes',
+                h: 'une heure',
+                hh: '%d heures',
+                d: 'un jour',
+                dd: '%d jours',
+                M: 'un mois',
+                MM: '%d mois',
+                y: 'un an',
+                yy: '%d ans'
+            },
+            dayOfMonthOrdinalParse: /\d{1,2}(er|e)/,
+            ordinal: function (number) {
+                return number + (number === 1 ? 'er' : 'e');
+            },
+            meridiemParse: /PD|MD/,
+            isPM: function (input) {
+                return input.charAt(0) === 'M';
+            },
+            // In case the meridiem units are not separated around 12, then implement
+            // this function (look at locale/id.js for an example).
+            // meridiemHour : function (hour, meridiem) {
+            //     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
+            // },
+            meridiem: function (hours, minutes, isLower) {
+                return hours < 12 ? 'PD' : 'MD';
+            },
+            week: {
+                dow: 1, // Monday is the first day of the week.
+                doy: 4 // Used to determine first week of the year.
+            }
+        });
+    }
+</script>
+
+</body>

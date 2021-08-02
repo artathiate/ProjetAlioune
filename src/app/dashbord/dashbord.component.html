@@ -1,0 +1,993 @@
+<body>
+
+
+	
+	<div id="loading_block" class="loading-block"></div>
+
+	<div class="orientation-block">
+		<div class="orientation-text">Merci de tourner votre téléphone</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="header-menu" id="header_menu">
+		<div class="header-menu__inner-content">
+			<button type="button" title="Close" data-toggle="close-menu"
+				class="header-close-toggle header-menu__close-button"></button>
+
+			<div class="header-menu__user-info">
+				<div class="left-part">
+					<div class="name">Alioune Sall</div>
+					<a href="/Account/Login/LogOff?returnUrl=%2FSignIn%2F" class="header-menu__sign-out">Déconnexion</a>
+				</div>
+
+				<div class="header-menu__avatar-img" id="header-menu_avatar_img_block"><img
+						src="/avatar-placeholder.svg" alt=""></div>
+			</div>
+
+			<div class="header-menu__nav">
+				<ul>
+					<li class="my-account"><a href="/mon-compte">Mon compte</a></li>
+					<li><a href="/dashboard">Mon tableau de bord</a></li>
+					<li><a href="/mes-rendez-vous">Mes rendez-vous</a></li>
+					<li><a href="/my-projects">Mes études</a></li>
+					<li><a href="/books-de-presentation">Mes book de présentation</a></li>
+					<li><a href="/coordonnees-du-beneficiaire">Démarrer une étude</a></li>
+				</ul>
+			</div>
+
+			<div class="header-menu__logo"><img src="/oree_logo_menu.png" alt=""></div>
+		</div>
+	</div>
+
+	<div class="header-menu__overlay" data-toggle="close-menu" id="header_menu_overlay"></div>
+	<div class="my-projects">
+		<button type="button" data-toggle="open-menu"
+			class="header-menu-toggle account-block__menu-button"><span></span></button>
+
+		<div class="my-projects__topbar">
+			<div class="container">
+				<div class="my-projects__topbar-row">
+					<h1 class="text-primary">Tableau de bord</h1>
+
+					<div class="text-input-wrapper my-projects__search-input date-picker">
+						<input type="text" id="dashboard_date" class="form-control" value="2021-06-29 - 2021-07-29">
+						<i class="material-icons">calendar_today</i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="dashboard-block__main-part">
+			<div class="panel bg-primary mb-2">
+				<div class="container">
+					<div class="form-row">
+						<div class="col-12 col-md-4">
+							<div class="dashboard-block__content-panel has-box-shadow mb-2 mb-md-0">
+								<div class="dashboard-block__num-vertical">
+									<div class="dashboard-block__panel-title">Nombre de rendez-vous</div>
+									<div class="num-caption nb-rdv">2</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-4">
+							<div class="dashboard-block__content-panel has-box-shadow mb-2 mb-md-0">
+								<div class="dashboard-block__num-vertical">
+									<div class="dashboard-block__panel-title">Nombre de ventes</div>
+									<div class="num-caption nb-signed-sales">0</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-4">
+							<div class="dashboard-block__content-panel has-box-shadow mb-2 mb-md-0">
+								<div class="dashboard-block__num-vertical">
+									<div class="dashboard-block__panel-title">Nombre d'installations</div>
+									<div class="num-caption nb-install">0</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel bg-dark-blue mb-2">
+				<div class="container">
+					<div class="form-row">
+						<div class="col-12 order-1 col-md-5 col-lg-3">
+							<div class="form-row flex-md-column dashboard-block__big-numbers-panels">
+								<div class="col-6 col-md-12">
+									<div class="dashboard-block__content-panel mb-2">
+										<span data-toggle="tooltip"
+											title="Le nombre de ventes est le nombre de bons de commande signés."
+											class="tooltip-button"></span>
+										<div class="dashboard-block__panel-title">Nombre de ventes</div>
+										<div class="dashboard-block__big-number nb-signed-sales">0</div>
+									</div>
+								</div>
+
+								<div class="col-6 col-md-12">
+									<div class="dashboard-block__content-panel mb-2 mb-md-0">
+										<span data-toggle="tooltip"
+											title="Le chiffre d'affaire des ventes est le CA en fonction des bons de commande signés."
+											class="tooltip-button"></span>
+										<div class="dashboard-block__panel-title">Chiffre d'affaire de ventes</div>
+										<div class="dashboard-block__big-number ca-sales">
+											0 K</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 order-2 order-md-3 order-lg-2 col-lg-5 ">
+							<div
+								class="dashboard-block__content-panel mb-2 mt-md-2 mt-lg-0 dashboard-block__line-chart-panel">
+								<div class="dashboard-block__panel-title">Détail du nombre des ventes</div>
+
+								<div class="dashboard-block__line-chart">
+									<div class="line-chart-wrapper">
+										<canvas class="chart-item" id="line_chart_1"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 order-3 order-md-2 order-lg-3 col-md-7 col-lg-4">
+							<div class="dashboard-block__content-panel mb-2">
+								<span data-toggle="tooltip"
+									title="Le taux de conversion des ventes est le % de bons de commande signés sur le nombre de rendez-vous réalisés."
+									class="tooltip-button"></span>
+
+								<div class="dashboard-block__panel-title">Taux de conversion ventes</div>
+
+								<div class="dashboard-block__round-percent">
+									<canvas class="round-item" data-percent="0"
+										id="ventes_conversion"></canvas>
+
+									<div class="round-percent ventes-conversion" style="color: #AAD097;">0 %</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel bg-gray mb-2">
+				<div class="container">
+					<div class="form-row">
+						<div class="col-12 order-1 col-md-5 col-lg-3">
+							<div class="form-row flex-md-column dashboard-block__big-numbers-panels">
+								<div class="col-6 col-md-12">
+									<div class="dashboard-block__content-panel mb-2">
+										<div class="dashboard-block__panel-title">Nombre d'installations</div>
+										<div class="dashboard-block__big-number nb-install">0</div>
+									</div>
+								</div>
+
+								<div class="col-6 col-md-12">
+									<div class="dashboard-block__content-panel mb-2 mb-md-0">
+										<span data-toggle="tooltip"
+											title="Le chiffre d'affaire d'installations est le CA des installations réalisées."
+											class="tooltip-button"></span>
+										<div class="dashboard-block__panel-title">Chiffre d'affaire d'installations
+										</div>
+										<div class="dashboard-block__big-number ca-install">
+											0 K</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 order-2 order-md-3 order-lg-2 col-lg-5">
+							<div
+								class="dashboard-block__content-panel mb-2 mt-md-2 mt-lg-0 dashboard-block__line-chart-panel">
+								<div class="dashboard-block__panel-title">Détail du nombre d'installation</div>
+
+								<div class="dashboard-block__line-chart">
+									<div class="line-chart-wrapper">
+										<canvas class="chart-item" id="line_chart_2"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 order-3 order-md-2 order-lg-3 col-md-7 col-lg-4">
+							<div class="dashboard-block__content-panel mb-2">
+								<span data-toggle="tooltip"
+									title="Le taux de conversion d'installations est le % d'installations en fonction du nombre de BDC signés."
+									class="tooltip-button"></span>
+
+								<div class="dashboard-block__panel-title">Taux de conversion installations</div>
+
+								<div class="dashboard-block__round-percent">
+									<canvas class="round-item" data-percent=""
+										id="installation_conversion"></canvas>
+
+									<div class="round-percent installation-conversion" style="color: #FFA929;"> %</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel bg-blue mb-2">
+				<div class="container">
+					<div class="form-row">
+						<div class="col-12 col-md-6 col-lg-8">
+							<div class="dashboard-block__content-panel mb-2">
+								<div class="dashboard-block__panel-title">Répartition des ventes par famille de produits
+								</div>
+
+								<div class="dashboard-block__block-full-width">
+									<div class="row align-items-center">
+										<div class="col-12 col-lg-7">
+											<div class="dashboard-block__pie-chart">
+												<canvas class="chart-item" id="sales_products_categories"></canvas>
+											</div>
+										</div>
+
+										<div class="col-12 col-lg-5">
+											<ul class="chart-module__labels-list products-name">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-6 col-lg-4">
+							<div class="dashboard-block__content-panel mb-2">
+								<span data-toggle="tooltip"
+									title="Le taux de rétractation est le % de rétractation sur le nombre de bons de commandes signés."
+									class="tooltip-button"></span>
+
+								<div class="dashboard-block__panel-title">Taux de rétractation</div>
+
+								<div class="dashboard-block__progress">
+									<div class="circle-block" id="taux_retraction_progress"
+										data-value="0">
+									</div>
+									<div class="percent-caption retraction"> %</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="startDate" value="2021-06-29">
+		<input type="hidden" id="endDate" value="2021-07-29">
+	</div>
+
+
+
+
+
+	<script type="text/javascript" src="/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/plugins.min.js"></script>
+	<script type="text/javascript" src="/main.min.js"></script>
+	<script src="/lodash.js"></script>
+	
+	
+	<script type="text/javascript">
+		//clear session storage
+		sessionStorage.clear();
+
+		//logout
+
+		$('#logout_link').click(function () {
+			localStorage.removeItem('profileImg');
+			return true;
+		});
+
+		//Load profile
+		function LoadProfilePicture() {
+		showLoading();
+		$.ajax("https://tucoenergieapi-prod.azurewebsites.net/api/user/c70a745c-69d3-eb11-bacc-000d3aae8ffc")
+			.done(function (data) {
+				if (data.entityImage != null) {
+					let profileImg = "data:image/png;base64," + data.entityImage;
+
+					localStorage.setItem('profileImg', profileImg);
+					$('#header-menu_avatar_img_block img').attr('src', profileImg);
+					hideLoading();
+				}
+				else{
+					hideLoading();
+				}
+			})
+			.fail(function (xhr) {
+				console.error(xhr);
+				hideLoading();
+			});
+	}
+		LoadProfilePicture();
+
+		Chart.defaults.global.legend.display = true;
+		Chart.defaults.global.fontFamily = '"Roboto", sans-serif';
+		Chart.defaults.global.showTooltips = false;
+		Chart.defaults.global.defaultFontColor = '#3B4863';
+
+		var lineChartsOptions = {
+			elements: {
+				line: {
+					tension: 0,
+					borderColor: '#EBECEF'
+				}
+			},
+			plugins: {
+				datalabels: {
+					display: false,
+				},
+			},
+			title: {
+				display: false
+			},
+			tooltips: {
+				enabled: false
+			},
+			tooltip: {
+				enabled: false
+			},
+			hover: {
+				mode: null
+			},
+			showTooltips: false,
+			legend: {
+				display: false
+			}
+
+		};
+		SetmomentLocal();
+		GetDataByRangeDate($("#startDate").val(), $("#endDate").val());
+
+		var configSalesProducts = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					backgroundColor: [
+					'#3B4863',
+					'#626D82',
+					'#8991A1',
+					'#BBBFC9',
+					'#CED1D8',
+					'#EBECEF',
+					'#f77f00',
+					'#457b9d',
+					'#80b918',
+					'#f1dca7',
+					'#002855',
+					'#80ed99',
+					'#fbff12',
+					'#4a7140',
+					'#09a129',
+					'#5465ff'
+					],
+					borderColor: [
+						'#fff',
+						'#fff',
+						'#3B4863',
+						'#3B4863',
+						'#3B4863',
+						'#3B4863',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						'#fff',
+						
+					],
+					borderWidth: 0,
+					datalabels: {
+						anchor: 'top',
+						backgroundColor: null,
+						borderWidth: 0
+					}
+				}]
+			},
+			options: {
+				aspectRatio: 1,
+				events: [],
+				responsive: true,
+				legend: {
+					display: false
+				},
+				tooltips: {
+					enabled: false
+				},
+				maintainAspectRatio: false,
+				layout: {
+					padding: {
+						left: 0,
+						right: 0,
+						top: 0,
+						bottom: 0
+					}
+				},
+				plugins: {
+					datalabels: {
+						backgroundColor: function (context) {
+							return context.dataset.backgroundColor;
+						},
+						color: function (context) {
+							// use the same color as the border
+							return context.dataset.borderColor
+						},
+						textAlign: 'center',
+						font: {
+							family: 'Roboto',
+							size: '10',
+							weight: '400',
+							lineHeight: '1.5'
+						},
+						display: function (context) {
+							var dataset = context.dataset;
+							var count = dataset.data.length;
+							var value = dataset.data[context.dataIndex];
+							return value > count * 1.5;
+						},
+						formatter: function (value, context) {
+							return context.chart.data.labels[context.dataIndex] + '%';
+						}
+					}
+				}
+			}
+		};
+
+		var productsChart = new Chart('sales_products_categories', configSalesProducts);
+
+
+		// Ventes conversion
+
+		var ventesConversionOpts = {
+			angle: 0, // The span of the gauge arc
+			lineWidth: 0.05, // The line thickness
+			radiusScale: 1,
+			pointer: {
+				length: 0.5,
+				strokeWidth: 0.025,
+				color: '#000000'
+			},
+			limitMax: false,
+			limitMin: false,
+			colorStart: '#6F6EA0',
+			colorStop: '#C0C0DB',
+			strokeColor: '#EEEEEE',
+			highDpiSupport: true,
+			staticLabels: {
+				font: "10px Roboto",
+				labels: [0, 10, 20, 100],
+				color: "#000000",
+				fractionDigits: 0
+			},
+			staticZones: [{
+					strokeStyle: "#D81159",
+					min: 0,
+					max: 10
+				},
+				{
+					strokeStyle: "#FFA929",
+					min: 10,
+					max: 20
+				},
+				{
+					strokeStyle: "#AAD097",
+					min: 20,
+					max: 50
+				},
+				{
+					strokeStyle: "#71B051",
+					min: 50,
+					max: 100
+				}
+			],
+
+		};
+
+		var ventesConversionTarget = document.getElementById('ventes_conversion');
+		var ventesConversionPercent = parseInt($(ventesConversionTarget).attr('data-percent'));
+		var ventesConversionGauge = new Gauge(ventesConversionTarget).setOptions(ventesConversionOpts);
+		ventesConversionGauge.maxValue = 100;
+		ventesConversionGauge.setMinValue(0);
+		ventesConversionGauge.animationSpeed = 32;
+		ventesConversionGauge.set(ventesConversionPercent);
+
+		// Installation conversion
+
+		var installationConversionOpts = {
+			angle: 0, // The span of the gauge arc
+			lineWidth: 0.05, // The line thickness
+			radiusScale: 1,
+			pointer: {
+				length: 0.5,
+				strokeWidth: 0.025,
+				color: '#000000'
+			},
+			limitMax: false,
+			limitMin: false,
+			colorStart: '#6F6EA0',
+			colorStop: '#C0C0DB',
+			strokeColor: '#EEEEEE',
+			highDpiSupport: true,
+			staticLabels: {
+				font: "10px Roboto",
+				labels: [0, 40, 60, 100],
+				color: "#000000",
+				fractionDigits: 0
+			},
+			staticZones: [{
+					strokeStyle: "#D81159",
+					min: 0,
+					max: 40
+				},
+				{
+					strokeStyle: "#FFA929",
+					min: 40,
+					max: 60
+				},
+				{
+					strokeStyle: "#71B051",
+					min: 60,
+					max: 100
+				}
+			],
+
+		};
+
+		var installationConversionTarget = document.getElementById('installation_conversion');
+		var installationConversionPercent = parseInt($(installationConversionTarget).attr('data-percent'));
+		var installationConversionGauge = new Gauge(installationConversionTarget).setOptions(installationConversionOpts);
+		installationConversionGauge.maxValue = 100;
+		installationConversionGauge.setMinValue(0);
+		installationConversionGauge.animationSpeed = 32;
+		installationConversionGauge.set(installationConversionPercent);
+
+
+		// Taux retraction progress
+
+		$('#taux_retraction_progress').circleProgress({
+			size: 210,
+			startAngle: -Math.PI / 2,
+			lineCap: 'square',
+			thickness: 36,
+			emptyFill: 'rgba(255,255,255,0)',
+			fill: '#3B4863'
+		});
+
+		// DASHBOARD DATEPICKER
+
+		// MEETINGS DATEPICKER
+
+
+		$('#dashboard_date').daterangepicker({
+
+			"locale": {
+				"format": "DD/MM/YYYY",
+				"separator": " - ",
+				"applyLabel": "Appliquer",
+				"cancelLabel": "Annuler",
+				"fromLabel": "De",
+				"toLabel": "à",
+				"customRangeLabel": "Personnalisé",
+				"daysOfWeek": [
+					"Di",
+					"Lu",
+					"Ma",
+					"Me",
+					"Je",
+					"Ve",
+					"Sa"
+				],
+				"monthNames": [
+					"Janv",
+					"Févr",
+					"Mars",
+					"Avril",
+					"Mai",
+					"Juin",
+					"Juil",
+					"Août",
+					"Sept",
+					"Oct",
+					"Nov",
+					"Déc"
+				],
+				"firstDay": 1
+			},
+			ranges: {
+				'Aujourd\'hui': [moment(), moment()],
+				'Hier': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+				'Les 7 derniers jours': [moment().subtract(6, 'days'), moment()],
+				'Les 30 derniers jours': [moment().subtract(29, 'days'), moment()],
+				'Ce mois': [moment().startOf('month'), moment().endOf('month')],
+				'Le mois dernier': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+					.endOf('month')
+				]
+			},
+			"showDropdowns": true,
+			"showCustomRangeLabel": true,
+			"showWeekNumbers": false,
+			"alwaysShowCalendars": true,
+			"startDate": moment().subtract(1, 'month'),
+			"endDate": moment(),
+			"minDate": "11/06/2018",
+			"maxDate": moment().add(1, 'days'),
+			"opens": "left",
+			"cancelClass": "btn-bordered"
+		}, function (start, end, label) {
+			GetDataByRangeDate(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'));
+			console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') +
+				' (predefined range: ' + label + ')');
+		});
+
+
+		function UpdateSalesSignedChart(signedSalesOrder) {
+			let infos = UpdateSalesSignedChartHelper(signedSalesOrder);
+			new Chart('line_chart_1', {
+				type: 'line',
+				data: {
+					labels: infos.dates,
+					datasets: [{
+						backgroundColor: 'rgba(104,184,227,0.39)',
+						borderColor: '#0288D1',
+						data: infos.values,
+						pointRadius: 0,
+						radius: 0,
+						borderWidth: 1,
+						pointRadius: 0,
+						pointHoverRadius: 0,
+						pointHoverBackgroundColor: 'transparent',
+						pointHoverBorderWidth: 0,
+						pointHoverBorderColor: 'transparent',
+						pointHitRadius: 0,
+						spanGaps: false
+					}]
+				},
+				options: Chart.helpers.merge(lineChartsOptions, {
+					scales: {
+						yAxes: [{
+							scaleLabel: {
+								display: true,
+								labelString: 'Nombre de ventes',
+								fontStyle: '500'
+							}
+						}],
+						xAxes: [{
+							scaleLabel: {
+								display: true,
+								labelString: 'Jours',
+								fontStyle: '500'
+							},
+							gridLines: {
+								display: false
+							},
+							ticks: {
+								maxRotation: 0,
+								minRotation: 0,
+								userCallback: function (item, index) {
+									//if (((index + 1) % 5) === 0) return item;
+									return item;
+								},
+								autoSkip: false
+							}
+						}]
+					}
+				}),
+
+			});
+		}
+
+		function UpdateSalesSignedChartHelper(signedSalesOrder) {
+			let grouped = _.groupBy(signedSalesOrder, "date");
+			let values = [];
+			let dates = []
+			for (const key in grouped) {
+				if (grouped.hasOwnProperty(key)) {
+					const element = grouped[key];
+					values.push(element.length);
+					dates.push(moment(key).format('DD MMM'))
+				}
+			}
+			return {
+				values:values,
+				dates:dates
+			}
+		}
+
+		function UpdateInsallationChart(installedChantier) {
+			let infos = UpdateInsallationChartHelper(installedChantier);
+			new Chart('line_chart_2', {
+				type: 'line',
+				data: {
+					labels: infos.dates,
+					datasets: [{
+						backgroundColor: 'rgba(104,184,227,0.39)',
+						borderColor: '#0288D1',
+						data: infos.values,
+						pointRadius: 0,
+						radius: 0,
+						borderWidth: 1,
+						pointRadius: 0,
+						pointHoverRadius: 0,
+						pointHoverBackgroundColor: 'transparent',
+						pointHoverBorderWidth: 0,
+						pointHoverBorderColor: 'transparent',
+						pointHitRadius: 0,
+						spanGaps: false
+					}]
+				},
+				options: Chart.helpers.merge(lineChartsOptions, {
+					scales: {
+						yAxes: [{
+							scaleLabel: {
+								display: true,
+								labelString: 'Nombre d\'installation',
+								fontStyle: '500'
+							}
+						}],
+						xAxes: [{
+							scaleLabel: {
+								display: true,
+								labelString: 'Jours',
+								fontStyle: '500'
+							},
+							gridLines: {
+								display: false
+							},
+							ticks: {
+								maxRotation: 0,
+								minRotation: 0,
+								userCallback: function (item, index) {
+									//if (((index + 1) % 5) === 0) return item;
+									return item;
+								},
+								autoSkip: false
+							}
+						}]
+					}
+				}),
+
+			});
+		}
+
+		function UpdateInsallationChartHelper(installedChantier) {
+			let grouped = _.groupBy(installedChantier, "date");
+			let values = [];
+			let dates = []
+			for (const key in grouped) {
+				if (grouped.hasOwnProperty(key)) {
+					const element = grouped[key];
+					values.push(element.length);
+					dates.push(moment(key).format('DD MMM'))
+				}
+			}
+
+			return {
+				values:values,
+				dates:dates
+			}
+		}
+
+		function GetDataByRangeDate(start, end) {
+
+			var monInit = {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				mode: 'cors',
+				cache: 'default'
+			};
+
+			showLoading();
+
+
+			$.ajax('/get-dashboard-data?start={0}&end={1}'.format(start, end))
+				.done(function (data) {
+					hideLoading();
+					$('.nb-rdv').text(data.nbRdvs);
+							$('.nb-signed-sales').text(data.nbSignedSalesOrders);
+							$('.nb-install').text(data.nbInstallations);
+							$('.ca-sales').text(data.salesMoney + ' K');
+							$('.ca-install').text(data.installMoney + ' K');
+
+							$('#ventes_conversion').data('percent', data.tauxConversionVentes);
+							$('.ventes-conversion').text(data.tauxConversionVentes + ' %');
+							UpdateTauxDeVentes(data.tauxConversionVentes);
+
+							$('#installation_conversion').data('percent', data.tauxConversionInstall);
+							$('.installation-conversion').text(data.tauxConversionInstall + ' %');
+							UpdateTauxInstall(data.tauxConversionInstall);
+
+							$('#taux_retraction_progress').circleProgress({
+								value: data.tauxRetractationDataValue
+							});
+							$('.retraction').text(data.tauxRetractation + ' %');
+
+							UpdateSalesSignedChart(data.signedSalesOrder);
+							UpdateInsallationChart(data.installedChantier);
+							UpdateSalesProductsChart(productsChart, data.soldProducts);
+							hideLoading();
+				})
+				.fail(function (xhr) {
+					console.error(xhr);
+					hideLoading();
+				});
+		}
+
+		function UpdateTauxDeVentes(value) {
+			ventesConversionTarget = document.getElementById('ventes_conversion');
+			ventesConversionGauge  = new Gauge(ventesConversionTarget).setOptions(ventesConversionOpts);
+			ventesConversionGauge.maxValue = 100;
+			ventesConversionGauge.setMinValue(0);
+			ventesConversionGauge.animationSpeed = 32;
+			ventesConversionGauge.set(value);
+		}
+
+		function UpdateTauxInstall(value) {
+			installationConversionTarget = document.getElementById('installation_conversion');
+			installationConversionGauge  = new Gauge(installationConversionTarget).setOptions(installationConversionOpts);
+			installationConversionGauge.maxValue = 100;
+			installationConversionGauge.setMinValue(0);
+			installationConversionGauge.animationSpeed = 32;
+			installationConversionGauge.set(value);
+		}
+
+		function GetRangeDaysAsArray(start, end) {
+			let values = []
+			for (let i = 0; moment(start).add(i, 'days').format('YYYY-MM-DD') <= moment(end).format('YYYY-MM-DD'); i++) {
+				const date = moment(start).add(i, 'days');
+				values.push(date.format('DD MMM'));
+			}
+			return values;
+		}
+
+		function UpdateSalesProductsChart(chart, soldProducts) {
+			let infos = UpdateSalesProductsChartChartHelper(soldProducts);
+			let elements = [];
+			console.log(infos)
+
+			var template = [
+				'<li>',
+					'<div class="left">',
+						'<div style="background-color: {0};" class="color-box"></div>',
+						'<span>{1}</span>',
+					'</div>',
+				'</li>'
+			].join("");
+			
+			let colorPalette = [
+			'#3B4863',
+			'#626D82',
+			'#8991A1',
+			'#BBBFC9',
+			'#CED1D8',
+			'#EBECEF',
+			'#f77f00',
+			'#457b9d',
+			'#80b918',
+			'#f1dca7',
+			'#002855',
+			'#80ed99',
+			'#fbff12',
+			'#4a7140',
+			'#09a129',
+			'#5465ff'
+			];
+			let i = 0;
+			for (const iterator of infos.keys) {
+				elements.push(template.format(colorPalette[i], iterator));
+				i++;
+			}
+			$('.products-name').empty();
+			$('.products-name').append(elements);
+			chart.data.labels = infos.labels;
+			chart.data.datasets.forEach((dataset) => {
+        	dataset.data = infos.data;
+			});
+			chart.update();
+		}
+
+		function UpdateSalesProductsChartChartHelper(soldProducts) {
+			let grouped = _.groupBy(soldProducts);
+			console.log(grouped);
+			let values = [];
+			let labels = [];
+			for (const key in grouped) {
+				if (grouped.hasOwnProperty(key)) {
+					const element = grouped[key];
+					let val = element.length * 10;
+					values.push(val);
+					labels.push(val.toString());
+				}
+			}
+			return {
+				labels:labels,
+				data:values,
+				keys: Object.keys(grouped)
+			}
+		}
+		function SetmomentLocal() {
+			moment.locale('fr', {
+				months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
+					'_'),
+				monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
+				monthsParseExact: true,
+				weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
+				weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
+				weekdaysMin: 'Di_Lu_Ma_Me_Je_Ve_Sa'.split('_'),
+				weekdaysParseExact: true,
+				longDateFormat: {
+					LT: 'HH:mm',
+					LTS: 'HH:mm:ss',
+					L: 'DD/MM/YYYY',
+					LL: 'D MMMM YYYY',
+					LLL: 'D MMMM YYYY HH:mm',
+					LLLL: 'dddd D MMMM YYYY HH:mm'
+				},
+				calendar: {
+					sameDay: '[Aujourd’hui à] LT',
+					nextDay: '[Demain à] LT',
+					nextWeek: 'dddd [à] LT',
+					lastDay: '[Hier à] LT',
+					lastWeek: 'dddd [dernier à] LT',
+					sameElse: 'L'
+				},
+				relativeTime: {
+					future: 'dans %s',
+					past: 'il y a %s',
+					s: 'quelques secondes',
+					m: 'une minute',
+					mm: '%d minutes',
+					h: 'une heure',
+					hh: '%d heures',
+					d: 'un jour',
+					dd: '%d jours',
+					M: 'un mois',
+					MM: '%d mois',
+					y: 'un an',
+					yy: '%d ans'
+				},
+				dayOfMonthOrdinalParse: /\d{1,2}(er|e)/,
+				ordinal: function (number) {
+					return number + (number === 1 ? 'er' : 'e');
+				},
+				meridiemParse: /PD|MD/,
+				isPM: function (input) {
+					return input.charAt(0) === 'M';
+				},
+				// In case the meridiem units are not separated around 12, then implement
+				// this function (look at locale/id.js for an example).
+				// meridiemHour : function (hour, meridiem) {
+				//     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
+				// },
+				meridiem: function (hours, minutes, isLower) {
+					return hours < 12 ? 'PD' : 'MD';
+				},
+				week: {
+					dow: 1, // Monday is the first day of the week.
+					doy: 4 // Used to determine first week of the year.
+				}
+			});
+		}
+	</script>
+</body>
